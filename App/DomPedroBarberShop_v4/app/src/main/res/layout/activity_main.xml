@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#343a40"
+    tools:context=".MainActivity">
+
+
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="327dp"
+        android:layout_height="74dp"
+        android:backgroundTint="#ffde59"
+        android:text="Entrar"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.90" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emaiL"
+        android:layout_width="350dp"
+        android:layout_height="75dp"
+        android:paddingLeft="25dp"
+        android:textAlignment="gravity"
+        android:textColor="#ffde59"
+        android:textColorHighlight="@android:color/background_light"
+        android:textColorHint="#ddd"
+        android:textColorLink="@android:color/background_light"
+        android:textCursorDrawable="@android:color/background_light"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="#ddd">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lblEmail"
+            android:layout_width="300dp"
+            android:layout_height="67dp"
+            android:hint="Digite seu Email:"
+            android:inputType="textEmailAddress"
+            android:textAlignment="gravity"
+            android:textColor="#ffde59"
+            android:textColorHighlight="@android:color/background_light"
+            android:textColorHint="#000000"
+            android:textColorLink="@android:color/background_light"
+            android:textCursorDrawable="@android:color/background_light"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.48"
+            app:passwordToggleTint="#ddd" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/lblEmail"-->
+    <!--        android:layout_width="300dp"-->
+    <!--        android:layout_height="67dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="Digite seu E-mail"-->
+    <!--        android:inputType="textPersonName"-->
+    <!--        android:textAlignment="gravity"-->
+    <!--        android:textSize="18dp"-->
+    <!--        android:textColor="#ffde59"-->
+    <!--        android:textColorHighlight="@android:color/background_light"-->
+    <!--        android:textColorHint="#ddd"-->
+    <!--        android:textColorLink="@android:color/background_light"-->
+    <!--        android:textCursorDrawable="@android:color/background_light"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.48" />-->
+
+
+    <TextView
+        android:id="@+id/lblBemVindo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bem Vindo!"
+        android:textColor="#fff"
+        android:textSize="50dp"
+        app:fontFamily="cursive"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05"
+        app:srcCompat="@drawable/logo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/senhA"
+        android:layout_width="350dp"
+        android:layout_height="75dp"
+        android:paddingLeft="25dp"
+        android:textAlignment="gravity"
+        android:textColor="#ffde59"
+        android:textColorHighlight="@android:color/background_light"
+        android:textColorHint="#ddd"
+        android:textColorLink="@android:color/background_light"
+        android:textCursorDrawable="@android:color/background_light"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.70"
+        app:passwordToggleDrawable="@drawable/icon_selector"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="#ddd">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/senha"
+            android:layout_width="300dp"
+            android:layout_height="67dp"
+            android:hint="Digite sua Senha:"
+            android:inputType="textPassword"
+            android:textAlignment="gravity"
+            android:textColor="#ffde59"
+            android:textColorHighlight="@android:color/background_light"
+            android:textColorHint="#ddd"
+            android:textColorLink="@android:color/background_light"
+            android:textCursorDrawable="@android:color/background_light"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.70"
+            app:passwordToggleTint="#ddd" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/senha"-->
+    <!--        android:layout_width="299dp"-->
+    <!--        android:layout_height="67dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="Digite sua Senha:"-->
+    <!--        android:inputType="textPassword"-->
+    <!--        android:textAlignment="gravity"-->
+    <!--        android:textColor="#ffde59"-->
+    <!--        android:textColorHighlight="@android:color/background_light"-->
+    <!--        android:textColorHint="#ddd"-->
+    <!--        android:textColorLink="@android:color/background_light"-->
+    <!--        android:textCursorDrawable="@android:color/background_light"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.70" />-->
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
