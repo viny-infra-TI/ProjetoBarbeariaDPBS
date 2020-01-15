@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6a6f7743e91d410d96df9802be6b9c87" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="DPBSv11Model.TB_AGENDA" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DPBSv11Model.TB_AGENDAMENTO" Width="1.5" PointX="9.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DPBSv11Model.TB_CATEGORIA" Width="1.5" PointX="7.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DPBSv11Model.TB_CLIENTE" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DPBSv11Model.TB_FUNCAO" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DPBSv11Model.TB_FUNCIONARIO" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DPBSv11Model.TB_PROMOCAO" Width="1.5" PointX="7.5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DPBSv11Model.TB_SERVICO" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <AssociationConnector Association="DPBSv11Model.FK_AGENDA" ManuallyRouted="false" />
+        <AssociationConnector Association="DPBSv11Model.FK_AGENDA_COD_FUNCIONARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="DPBSv11Model.FK_AGENDA_COD_SERVICO" ManuallyRouted="false" />
+        <AssociationConnector Association="DPBSv11Model.FK_AGENDAMENTO_COD_CLIENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="DPBSv11Model.FK_AGENDAMENTO_COD_FUNCIONARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="DPBSv11Model.FK_AGENDAMENTO_COD_SERVICO" ManuallyRouted="false" />
+        <AssociationConnector Association="DPBSv11Model.FK_CATEGORIA_COD_SERVICO" ManuallyRouted="false" />
+        <AssociationConnector Association="DPBSv11Model.FK_FUNCIONARIO_COD_FUNCAO" ManuallyRouted="false" />
+        <AssociationConnector Association="DPBSv11Model.FK_SERVICO_COD_FUNCIONARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="DPBSv11Model.FK_PROMOCAO_COD_SERVICO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

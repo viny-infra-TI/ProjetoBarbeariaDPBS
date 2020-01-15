@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DPBSv11ModelStoreContainer" CdmEntityContainer="DPBSv11Entities1">
+    <EntitySetMapping Name="TB_AGENDA">
+      <EntityTypeMapping TypeName="DPBSv11Model.TB_AGENDA">
+        <MappingFragment StoreEntitySet="TB_AGENDA">
+          <ScalarProperty Name="COD_AGENDA" ColumnName="COD_AGENDA" />
+          <ScalarProperty Name="DATA" ColumnName="DATA" />
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+          <ScalarProperty Name="COD_FUNCIONARIO" ColumnName="COD_FUNCIONARIO" />
+          <ScalarProperty Name="COD_SERVICO" ColumnName="COD_SERVICO" />
+          <ScalarProperty Name="SITUACAO" ColumnName="SITUACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_AGENDAMENTO">
+      <EntityTypeMapping TypeName="DPBSv11Model.TB_AGENDAMENTO">
+        <MappingFragment StoreEntitySet="TB_AGENDAMENTO">
+          <ScalarProperty Name="COD_AGENDAMENTO" ColumnName="COD_AGENDAMENTO" />
+          <ScalarProperty Name="DATA" ColumnName="DATA" />
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+          <ScalarProperty Name="COD_AGENDA" ColumnName="COD_AGENDA" />
+          <ScalarProperty Name="COD_FUNCIONARIO" ColumnName="COD_FUNCIONARIO" />
+          <ScalarProperty Name="COD_SERVICO" ColumnName="COD_SERVICO" />
+          <ScalarProperty Name="COD_CLIENTE" ColumnName="COD_CLIENTE" />
+          <ScalarProperty Name="SITUACAO" ColumnName="SITUACAO" />
+          <ScalarProperty Name="MOTIVO_CANCELAMENTO" ColumnName="MOTIVO_CANCELAMENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CATEGORIA">
+      <EntityTypeMapping TypeName="DPBSv11Model.TB_CATEGORIA">
+        <MappingFragment StoreEntitySet="TB_CATEGORIA">
+          <ScalarProperty Name="COD_CATEGORIA" ColumnName="COD_CATEGORIA" />
+          <ScalarProperty Name="CATEGORIA" ColumnName="CATEGORIA" />
+          <ScalarProperty Name="COD_SERVICO" ColumnName="COD_SERVICO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CLIENTE">
+      <EntityTypeMapping TypeName="DPBSv11Model.TB_CLIENTE">
+        <MappingFragment StoreEntitySet="TB_CLIENTE">
+          <ScalarProperty Name="COD_CLIENTE" ColumnName="COD_CLIENTE" />
+          <ScalarProperty Name="DATA_CAD" ColumnName="DATA_CAD" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+          <ScalarProperty Name="TELEFONE" ColumnName="TELEFONE" />
+          <ScalarProperty Name="ACESSO" ColumnName="ACESSO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_FUNCAO">
+      <EntityTypeMapping TypeName="DPBSv11Model.TB_FUNCAO">
+        <MappingFragment StoreEntitySet="TB_FUNCAO">
+          <ScalarProperty Name="COD_FUNCAO" ColumnName="COD_FUNCAO" />
+          <ScalarProperty Name="FUNCAO" ColumnName="FUNCAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_FUNCIONARIO">
+      <EntityTypeMapping TypeName="DPBSv11Model.TB_FUNCIONARIO">
+        <MappingFragment StoreEntitySet="TB_FUNCIONARIO">
+          <ScalarProperty Name="COD_FUNCIONARIO" ColumnName="COD_FUNCIONARIO" />
+          <ScalarProperty Name="DATA_CAD" ColumnName="DATA_CAD" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+          <ScalarProperty Name="COD_FUNCAO" ColumnName="COD_FUNCAO" />
+          <ScalarProperty Name="ACESSO" ColumnName="ACESSO" />
+          <ScalarProperty Name="SITUACAO" ColumnName="SITUACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_PROMOCAO">
+      <EntityTypeMapping TypeName="DPBSv11Model.TB_PROMOCAO">
+        <MappingFragment StoreEntitySet="TB_PROMOCAO">
+          <ScalarProperty Name="COD_PROMOCAO" ColumnName="COD_PROMOCAO" />
+          <ScalarProperty Name="COD_SERVICO" ColumnName="COD_SERVICO" />
+          <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="DATA_INI" ColumnName="DATA_INI" />
+          <ScalarProperty Name="DATA_FIM" ColumnName="DATA_FIM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_SERVICO">
+      <EntityTypeMapping TypeName="DPBSv11Model.TB_SERVICO">
+        <MappingFragment StoreEntitySet="TB_SERVICO">
+          <ScalarProperty Name="COD_SERVICO" ColumnName="COD_SERVICO" />
+          <ScalarProperty Name="SERVICO" ColumnName="SERVICO" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="COD_PROMOCAO" ColumnName="COD_PROMOCAO" />
+          <ScalarProperty Name="COD_FUNCIONARIO" ColumnName="COD_FUNCIONARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

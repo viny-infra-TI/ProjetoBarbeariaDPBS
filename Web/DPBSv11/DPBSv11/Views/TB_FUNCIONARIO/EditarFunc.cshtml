@@ -1,0 +1,147 @@
+﻿@model DPBSv11.Models.TB_FUNCIONARIO
+
+
+<head>
+    <title>Cadastrar novo funcionário</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=width-device, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="~/images/logoDPBS.jpg" type="image/x-png" />
+
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/padrao.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/Validacao/CustomValidation.js"></script>
+
+
+    <!-- Mascaras -->
+    <script src="~/Scripts/Inputmask-5.x/dist/jquery.inputmask.js"></script>
+    <script src="~/Scripts/Inputmask-5.x/dist/inputmask.js"></script>
+    <script src="~/Scripts/Inputmask-5.x/dist/bindings/inputmask.binding.js"></script>
+    <!-- Fim Mascaras -->
+
+
+    <script src="~/Scripts/wow.min.js"></script>
+    <script>
+            new WOW().init();
+    </script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+
+</head>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<body>
+    <!--MASCARAS-->
+    <script type="text/javascript">
+        $(function () {
+            $("#cpf").inputmask("mask", {
+                "mask": "999.999.999-99", placeholder: "000.000.000-00", removeMaskOnSubmit: true
+            },
+                {
+                    reverse: true
+                });
+            $('#tele').inputmask('(99) 9999[9]-9999', { placeholder: "(00)00000-0000", removeMaskOnSubmit: true });
+            $('#datetimepicker1').datetimepicker();
+
+
+        });
+    </script>
+
+    <div class="container col-6 justify-content-center bg-preto-dark color-dourado " style="margin-top:90px;border-radius:12px;">
+        <div class="form-horizontal">
+            <h4 class="text-center"><br />Edite suas informações @Session["nomeUsuarioLogado"]</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.COD_FUNCIONARIO)
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.DATA_CAD, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DATA_CAD, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DATA_CAD, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NOME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NOME, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite sEU NOME", @required = true } })
+                    @Html.ValidationMessageFor(model => model.NOME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @id = "cpf",  @class = "form-control", placeholder = "Digite seu CPF", @required = true } })
+                    @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite seu e-mail", @required = true } })
+                    @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SENHA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(a => a.SENHA, htmlAttributes: new { @class = "form-control", placeholder = "Digite sua senha", @required = true })
+                    @Html.ValidationMessageFor(model => model.SENHA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.CONFIRMARSENHA, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CONFIRMARSENHA, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CONFIRMARSENHA, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            @*<div class="form-group sr-only">
+                    @Html.LabelFor(model => model.COD_FUNCAO, "COD_FUNCAO", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("COD_FUNCAO", null, htmlAttributes: new { @Value = "BARBEIRO" })
+                        @Html.ValidationMessageFor(model => model.COD_FUNCAO, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            @*<div class="form-group sr-only">
+                    @Html.LabelFor(model => model.ACESSO, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("ACESSO", null, htmlAttributes: new { @Value = "FUNCIONARIO" })
+                        @Html.ValidationMessageFor(model => model.ACESSO, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            @*<div class="form-group sr-only">
+                    @Html.LabelFor(model => model.SITUACAO, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SITUACAO, new { htmlAttributes = new { @Value = "1" } })
+                        @Html.ValidationMessageFor(model => model.SITUACAO, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-6 justify-content-center">
+                    <input class="btn btn-success" type="submit" value="Save" />
+                    <a href="~/TB_FUNCIONARIO/Perfil" class="btn btn-danger">Voltar</a>
+                </div>
+                <br /><br />
+            </div>
+        </div>
+    </div>
+</body>
+}
+
+
+
+

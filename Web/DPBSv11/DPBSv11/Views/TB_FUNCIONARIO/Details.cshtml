@@ -1,0 +1,87 @@
+﻿@model DPBSv11.Models.TB_FUNCIONARIO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/padrao.css" rel="stylesheet" />
+
+<div class="container col-6 justify-content-center bg-preto-dark color-dourado " style="margin-top:15px;border-radius:12px;">
+    <h4>DETALHES</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DATA_CAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATA_CAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SENHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SENHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ACESSO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACESSO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SITUACAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SITUACAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TB_FUNCAO.FUNCAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TB_FUNCAO.FUNCAO)
+        </dd>
+
+    </dl>
+
+
+        <hr />
+    
+    <br />
+    <a href="~/TB_FUNCIONARIO/index" class="btn btn-danger">Voltar</a>
+
+</div> 
+

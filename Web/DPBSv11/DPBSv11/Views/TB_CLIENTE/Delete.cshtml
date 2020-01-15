@@ -1,0 +1,81 @@
+﻿@model DPBSv11.Models.TB_CLIENTE
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/padrao.css" rel="stylesheet" />
+
+<div class="container col-6 justify-content-center bg-preto-dark color-dourado " style="margin-top:15px;border-radius:12px;">
+    <h4>Excluir</h4>
+    <h5>Todos os registros serão apagados, deseja continuar?</h5>
+    <hr />
+    <div>
+   
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DATA_CAD)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DATA_CAD)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NOME)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NOME)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CPF)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CPF)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EMAIL)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EMAIL)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SENHA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SENHA)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TELEFONE)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TELEFONE)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ACESSO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ACESSO)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Excluir" class="btn btn-danger" /> 
+                <a href="~/TB_CLIENTE/Index">  <input type="button" value="Voltar" class="btn btn-warning" /> </a> 
+            </div>
+        }
+    </div>
+    </div>

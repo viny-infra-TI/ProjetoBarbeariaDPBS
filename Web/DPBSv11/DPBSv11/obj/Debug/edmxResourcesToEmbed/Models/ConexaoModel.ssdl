@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DPBSv11Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TB_AGENDA">
+    <Key>
+      <PropertyRef Name="COD_AGENDA" />
+    </Key>
+    <Property Name="COD_AGENDA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DATA" Type="datetime" />
+    <Property Name="HORA" Type="datetime" />
+    <Property Name="COD_FUNCIONARIO" Type="int" />
+    <Property Name="COD_SERVICO" Type="int" />
+    <Property Name="SITUACAO" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="TB_AGENDAMENTO">
+    <Key>
+      <PropertyRef Name="COD_AGENDAMENTO" />
+    </Key>
+    <Property Name="COD_AGENDAMENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DATA" Type="datetime" Nullable="false" />
+    <Property Name="HORA" Type="datetime" Nullable="false" />
+    <Property Name="COD_AGENDA" Type="int" />
+    <Property Name="COD_FUNCIONARIO" Type="int" Nullable="false" />
+    <Property Name="COD_SERVICO" Type="int" Nullable="false" />
+    <Property Name="COD_CLIENTE" Type="int" Nullable="false" />
+    <Property Name="SITUACAO" Type="varchar" MaxLength="1" />
+    <Property Name="MOTIVO_CANCELAMENTO" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="TB_CATEGORIA">
+    <Key>
+      <PropertyRef Name="COD_CATEGORIA" />
+    </Key>
+    <Property Name="COD_CATEGORIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATEGORIA" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="COD_SERVICO" Type="int" />
+  </EntityType>
+  <EntityType Name="TB_CLIENTE">
+    <Key>
+      <PropertyRef Name="COD_CLIENTE" />
+    </Key>
+    <Property Name="COD_CLIENTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DATA_CAD" Type="datetime" />
+    <Property Name="NOME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CPF" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SENHA" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="TELEFONE" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="ACESSO" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TB_FUNCAO">
+    <Key>
+      <PropertyRef Name="COD_FUNCAO" />
+    </Key>
+    <Property Name="COD_FUNCAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FUNCAO" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_FUNCIONARIO">
+    <Key>
+      <PropertyRef Name="COD_FUNCIONARIO" />
+    </Key>
+    <Property Name="COD_FUNCIONARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DATA_CAD" Type="datetime" />
+    <Property Name="NOME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CPF" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SENHA" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="COD_FUNCAO" Type="int" />
+    <Property Name="ACESSO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SITUACAO" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="TB_PROMOCAO">
+    <Key>
+      <PropertyRef Name="COD_PROMOCAO" />
+    </Key>
+    <Property Name="COD_PROMOCAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="COD_SERVICO" Type="int" />
+    <Property Name="DESCRICAO" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="VALOR" Type="decimal" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="DATA_INI" Type="date" Nullable="false" />
+    <Property Name="DATA_FIM" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TB_SERVICO">
+    <Key>
+      <PropertyRef Name="COD_SERVICO" />
+    </Key>
+    <Property Name="COD_SERVICO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SERVICO" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="VALOR" Type="decimal" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="COD_PROMOCAO" Type="int" />
+    <Property Name="COD_FUNCIONARIO" Type="int" />
+  </EntityType>
+  <Association Name="FK_AGENDA">
+    <End Role="TB_AGENDA" Type="Self.TB_AGENDA" Multiplicity="0..1" />
+    <End Role="TB_AGENDAMENTO" Type="Self.TB_AGENDAMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_AGENDA">
+        <PropertyRef Name="COD_AGENDA" />
+      </Principal>
+      <Dependent Role="TB_AGENDAMENTO">
+        <PropertyRef Name="COD_AGENDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AGENDA_COD_FUNCIONARIO">
+    <End Role="TB_FUNCIONARIO" Type="Self.TB_FUNCIONARIO" Multiplicity="0..1" />
+    <End Role="TB_AGENDA" Type="Self.TB_AGENDA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_FUNCIONARIO">
+        <PropertyRef Name="COD_FUNCIONARIO" />
+      </Principal>
+      <Dependent Role="TB_AGENDA">
+        <PropertyRef Name="COD_FUNCIONARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AGENDA_COD_SERVICO">
+    <End Role="TB_SERVICO" Type="Self.TB_SERVICO" Multiplicity="0..1" />
+    <End Role="TB_AGENDA" Type="Self.TB_AGENDA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_SERVICO">
+        <PropertyRef Name="COD_SERVICO" />
+      </Principal>
+      <Dependent Role="TB_AGENDA">
+        <PropertyRef Name="COD_SERVICO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AGENDAMENTO_COD_CLIENTE">
+    <End Role="TB_CLIENTE" Type="Self.TB_CLIENTE" Multiplicity="1" />
+    <End Role="TB_AGENDAMENTO" Type="Self.TB_AGENDAMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_CLIENTE">
+        <PropertyRef Name="COD_CLIENTE" />
+      </Principal>
+      <Dependent Role="TB_AGENDAMENTO">
+        <PropertyRef Name="COD_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AGENDAMENTO_COD_FUNCIONARIO">
+    <End Role="TB_FUNCIONARIO" Type="Self.TB_FUNCIONARIO" Multiplicity="1" />
+    <End Role="TB_AGENDAMENTO" Type="Self.TB_AGENDAMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_FUNCIONARIO">
+        <PropertyRef Name="COD_FUNCIONARIO" />
+      </Principal>
+      <Dependent Role="TB_AGENDAMENTO">
+        <PropertyRef Name="COD_FUNCIONARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AGENDAMENTO_COD_SERVICO">
+    <End Role="TB_SERVICO" Type="Self.TB_SERVICO" Multiplicity="1" />
+    <End Role="TB_AGENDAMENTO" Type="Self.TB_AGENDAMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_SERVICO">
+        <PropertyRef Name="COD_SERVICO" />
+      </Principal>
+      <Dependent Role="TB_AGENDAMENTO">
+        <PropertyRef Name="COD_SERVICO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CATEGORIA_COD_SERVICO">
+    <End Role="TB_SERVICO" Type="Self.TB_SERVICO" Multiplicity="0..1" />
+    <End Role="TB_CATEGORIA" Type="Self.TB_CATEGORIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_SERVICO">
+        <PropertyRef Name="COD_SERVICO" />
+      </Principal>
+      <Dependent Role="TB_CATEGORIA">
+        <PropertyRef Name="COD_SERVICO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FUNCIONARIO_COD_FUNCAO">
+    <End Role="TB_FUNCAO" Type="Self.TB_FUNCAO" Multiplicity="0..1" />
+    <End Role="TB_FUNCIONARIO" Type="Self.TB_FUNCIONARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_FUNCAO">
+        <PropertyRef Name="COD_FUNCAO" />
+      </Principal>
+      <Dependent Role="TB_FUNCIONARIO">
+        <PropertyRef Name="COD_FUNCAO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROMOCAO_COD_SERVICO">
+    <End Role="TB_SERVICO" Type="Self.TB_SERVICO" Multiplicity="0..1" />
+    <End Role="TB_PROMOCAO" Type="Self.TB_PROMOCAO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_SERVICO">
+        <PropertyRef Name="COD_SERVICO" />
+      </Principal>
+      <Dependent Role="TB_PROMOCAO">
+        <PropertyRef Name="COD_SERVICO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SERVICO_COD_FUNCIONARIO">
+    <End Role="TB_FUNCIONARIO" Type="Self.TB_FUNCIONARIO" Multiplicity="0..1" />
+    <End Role="TB_SERVICO" Type="Self.TB_SERVICO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_FUNCIONARIO">
+        <PropertyRef Name="COD_FUNCIONARIO" />
+      </Principal>
+      <Dependent Role="TB_SERVICO">
+        <PropertyRef Name="COD_FUNCIONARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DPBSv11ModelStoreContainer">
+    <EntitySet Name="TB_AGENDA" EntityType="Self.TB_AGENDA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_AGENDAMENTO" EntityType="Self.TB_AGENDAMENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_CATEGORIA" EntityType="Self.TB_CATEGORIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_CLIENTE" EntityType="Self.TB_CLIENTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_FUNCAO" EntityType="Self.TB_FUNCAO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_FUNCIONARIO" EntityType="Self.TB_FUNCIONARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_PROMOCAO" EntityType="Self.TB_PROMOCAO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_SERVICO" EntityType="Self.TB_SERVICO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AGENDA" Association="Self.FK_AGENDA">
+      <End Role="TB_AGENDA" EntitySet="TB_AGENDA" />
+      <End Role="TB_AGENDAMENTO" EntitySet="TB_AGENDAMENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AGENDA_COD_FUNCIONARIO" Association="Self.FK_AGENDA_COD_FUNCIONARIO">
+      <End Role="TB_FUNCIONARIO" EntitySet="TB_FUNCIONARIO" />
+      <End Role="TB_AGENDA" EntitySet="TB_AGENDA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AGENDA_COD_SERVICO" Association="Self.FK_AGENDA_COD_SERVICO">
+      <End Role="TB_SERVICO" EntitySet="TB_SERVICO" />
+      <End Role="TB_AGENDA" EntitySet="TB_AGENDA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AGENDAMENTO_COD_CLIENTE" Association="Self.FK_AGENDAMENTO_COD_CLIENTE">
+      <End Role="TB_CLIENTE" EntitySet="TB_CLIENTE" />
+      <End Role="TB_AGENDAMENTO" EntitySet="TB_AGENDAMENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AGENDAMENTO_COD_FUNCIONARIO" Association="Self.FK_AGENDAMENTO_COD_FUNCIONARIO">
+      <End Role="TB_FUNCIONARIO" EntitySet="TB_FUNCIONARIO" />
+      <End Role="TB_AGENDAMENTO" EntitySet="TB_AGENDAMENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AGENDAMENTO_COD_SERVICO" Association="Self.FK_AGENDAMENTO_COD_SERVICO">
+      <End Role="TB_SERVICO" EntitySet="TB_SERVICO" />
+      <End Role="TB_AGENDAMENTO" EntitySet="TB_AGENDAMENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CATEGORIA_COD_SERVICO" Association="Self.FK_CATEGORIA_COD_SERVICO">
+      <End Role="TB_SERVICO" EntitySet="TB_SERVICO" />
+      <End Role="TB_CATEGORIA" EntitySet="TB_CATEGORIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FUNCIONARIO_COD_FUNCAO" Association="Self.FK_FUNCIONARIO_COD_FUNCAO">
+      <End Role="TB_FUNCAO" EntitySet="TB_FUNCAO" />
+      <End Role="TB_FUNCIONARIO" EntitySet="TB_FUNCIONARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROMOCAO_COD_SERVICO" Association="Self.FK_PROMOCAO_COD_SERVICO">
+      <End Role="TB_SERVICO" EntitySet="TB_SERVICO" />
+      <End Role="TB_PROMOCAO" EntitySet="TB_PROMOCAO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SERVICO_COD_FUNCIONARIO" Association="Self.FK_SERVICO_COD_FUNCIONARIO">
+      <End Role="TB_FUNCIONARIO" EntitySet="TB_FUNCIONARIO" />
+      <End Role="TB_SERVICO" EntitySet="TB_SERVICO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

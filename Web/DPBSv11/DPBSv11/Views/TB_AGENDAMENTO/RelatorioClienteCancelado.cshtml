@@ -1,0 +1,225 @@
+﻿@model IEnumerable<DPBSv11.Models.TB_AGENDAMENTO>
+
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+<head>
+    <title> Área Funcionário</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=width-device, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="~/images/logoDPBS.jpg" type="image/x-png" />
+
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/padrao.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/DataTables/extensions/Select/css/select.bootstrap4.min.css" />
+    @*<link rel="stylesheet" type="text/css" href="~/Content/DataTables/media/css/jquery.dataTables.min.css" />*@
+    <link rel="stylesheet" type="text/css" href="~/Content/DataTables/extensions/Buttons/css/buttons.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/DataTables/extensions/Responsive/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/DataTables/media/css/dataTables.bootstrap4.min.css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <!--JS DE DATATABLES-->
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/media/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/DataTables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/DataTables/extensions/Buttons/js/buttons.flash.min.js"></script>
+    <script src="~/Scripts/DataTables/extensions/Buttons/js/buttons.print.min.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/DataTables/extensions/Buttons/js/buttons.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/extensions/Buttons/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/extensions/Buttons/js/buttons.html5.min.js"></script>
+
+
+
+    <script type="text/javascript" src="~/Scripts/DataTables/extensions/JSZip/jszip.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/extensions/pdfmake/pdfmake.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/extensions/pdfmake/vfs_fonts.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/extensions/Select/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/extensions/Responsive/js/responsive.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/media/js/datatables.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/DataTables/media/js/dataTables.bootstrap4.min.js"></script>
+
+
+
+
+    @*<script src="~/Scripts/DataTables/media/js/jquery.dataTables.min.js"></script>
+        <script src="~/Scripts/DataTables/media/js/dataTables.bootstrap4.min.js"></script>
+        <script src="~/Scripts/DataTables/extensions/AutoFill/js/dataTables.autoFill.min.js"></script>
+        <script src="~/Scripts/DataTables/extensions/AutoFill/js/autoFill.bootstrap4.min.js"></script>*@
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $('#datatable').DataTable({
+                "language": {
+                    buttons: {
+                        pageLength: {
+                            '_': "Mostrar %d Linhas",
+                        }
+                    },
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "_MENU_ resultados por página",
+                    "sLoadingRecords": "Carregando ...",
+                    "sProcessing": "Processando ...",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "sSearch": "Pesquisar",
+                    "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    },
+                    "selecione": {
+                        "linhas": {
+                            "_": "Selecionado% d linhas",
+                            "0": "Nenhuma linha selecionada",
+                            "1": "Selecionado 1 linha"
+                        }
+                    }
+                },
+                responsive: true,
+                select: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    { extend: 'pdf', text: '<i class="fal fa-file-pdf fa-1x btn btn-success" aria-hidden="true"> PDF</i>' },
+                    { extend: 'excel', text: '<i class="fal fa-file-excel btn btn-success" aria-hidden="true"> Excel</i>' },
+                    { extend: 'print', text: '<i class="fal fa-file-excel btn btn-success" aria-hidden="true"> Imprimir</i>' },
+                    //{ extend: 'colvis', text: '<i class="fal fa-eye btn btn-success" aria-hidden="true"> Mostrar Colunas</i>' }
+                ],
+            });
+            table.buttons().container()
+                .appendTo('#datatable_wrapper .col-md-6:eq(0)');
+        });
+    </script>
+
+
+
+</head>
+<body class="bg-cinza-escuro">
+
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  wow fadeInDown" data-wow-duration="0.5s">
+
+
+        <a href="~/Home/Index" class="navbar-brand"><img src="~/images/logoDPBS.jpg" class="navbar-brand"></a>
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarMenu">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="~/TB_CLIENTE/AreaCliente/@Session["codigoCliente"]"> <b>Minha Conta</b></a>
+                <a class="nav-item nav-link" href="~/TB_CLIENTE/AgendaCliente/@Session["codigoCliente"]"> <b>Minha Agenda</b></a>
+
+                <a class="nav-item nav-link" href="~/TB_AGENDA/AgendaDisponivel"> <b>Agende-se</b> </a>
+                <a class="nav-item nav-link" href="~/TB_PROMOCAO/PromocoesCli"> <b>Promoções</b></a>
+
+                <a class="nav-item nav-link active" href="~/TB_CLIENTE/RelatorioCliente"> <b>Agendamentos</b> </a>
+                <a class="nav-item nav-link" href="~/TB_CLIENTE/Agendamento"> <b>Serviços</b> </a>
+
+            </div>
+        </div>
+        <div class="color-cinza-escuro">
+
+
+            <text>
+                @Session["nomeUsuarioLogado"].ToString()
+            </text>
+
+
+            <div><p style="text-align:right"><a class="btn btn-danger" href="~/Home/Index"> Sair</a></p></div>
+
+
+        </div>
+    </nav>
+
+
+    <div><p style="margin-top:10px; margin-left:110px; border-radius:10px;"><a class="btn btn-success active text-decoration-color:#000000;" href="~/TB_CLIENTE/RelatorioCliente"> Serviços Finalizados</a></p></div>
+
+
+    <div class="container container2 " style="margin-top:10px; border-radius:10px;">
+        <h3 class="color-dourado">Relatório de serviços cancelados</h3>
+        <table id="datatable" class="table table-dark table-striped table-bordered color-cinza">
+            <thead>
+                <tr class="text-center">
+                    <th>
+                        @Html.DisplayNameFor(model => model.COD_AGENDAMENTO)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.DATA)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HORA)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.TB_CLIENTE.NOME)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TB_FUNCIONARIO.NOME)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TB_SERVICO.SERVICO)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SITUACAO)
+                    </th>
+                    <th>
+                       
+                      Motivo
+                    </th>
+
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr class="text-center">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.COD_AGENDAMENTO)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DATA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HORA)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TB_CLIENTE.NOME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TB_FUNCIONARIO.NOME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TB_SERVICO.SERVICO)
+                    </td>
+                    <td>
+                        <p class="btn btn-light desabled badge badge-secondary badge-pill">  Cancelado </p>
+
+                    </td>
+                    <td>
+                        Comentário de  <b class="active"> @Session["nomeUsuarioLogado"].ToString(): </b>
+                        @Html.DisplayFor(modelItem => item.MOTIVO_CANCELAMENTO)
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+
+</body>
+</html>

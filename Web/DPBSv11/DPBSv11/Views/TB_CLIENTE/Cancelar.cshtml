@@ -1,0 +1,103 @@
+﻿@model DPBSv11.Models.TB_AGENDAMENTO
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/padrao.css" rel="stylesheet" />
+
+
+
+
+    @using (Html.BeginForm())
+    {
+        <body class="">
+<div class="container col-6 justify-content-center bg-preto-dark color-dourado " style="margin-top:90px;border-radius:12px;">
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2 class="text-center">Agendamento nº: @Session[("codAgendaCliente")]</h2>
+        <hr />
+
+        <h1 class="text-center">Deseja realmente cancelar esse serviço?</h1>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.COD_AGENDAMENTO)
+
+        <div class="form-group sr-only">
+            @Html.LabelFor(model => model.DATA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DATA, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DATA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group sr-only">
+            @Html.LabelFor(model => model.HORA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.HORA, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HORA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group sr-only">
+            @Html.LabelFor(model => model.COD_SERVICO, "COD_SERVICO", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("COD_SERVICO", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.COD_SERVICO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group sr-only">
+            @Html.LabelFor(model => model.COD_CLIENTE, "COD_CLIENTE", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("COD_CLIENTE", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.COD_CLIENTE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group sr-only">
+            @Html.LabelFor(model => model.COD_FUNCIONARIO, "COD_FUNCIONARIO", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("COD_FUNCIONARIO", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.COD_FUNCIONARIO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+
+            @Html.LabelFor(model => model.MOTIVO_CANCELAMENTO, htmlAttributes: new { @class = "control-label col-md-2 active" }) &nbsp; &nbsp;<b>(opcional)</b>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.MOTIVO_CANCELAMENTO, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                @Html.ValidationMessageFor(model => model.MOTIVO_CANCELAMENTO, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MOTIVO_CANCELAMENTO, "Motivo do cancelamento", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MOTIVO_CANCELAMENTO, new List<String> { "Cliente não gostou do preço final do serviço", "Cliente desistiu do serviço solicitado", "Cliente não poderá comparecer no dia agendado", "Motivos pessoais", "Outros" }.Select(option => new SelectListItem
+                        {
+                            Text = option,
+                            Value = option,
+                            Selected = (Model != null) && (Model.MOTIVO_CANCELAMENTO == option)
+                        }), new { @class = "form-control" })
+            </div>
+        </div>
+
+        <br />
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 text-center">
+                <input type="submit" value="Cancelar agora" class="btn btn-success" style="margin-left:110px;border-radius:12px;" />  &nbsp; &nbsp;
+                <a class="btn btn-danger" href="~/TB_CLIENTE/AgendaCliente" style="border-radius:12px;"> Voltar</a>
+            </div>
+        </div>
+        <br />
+    </div>
+    </div>
+    
+    </body>
+}
+
+
+
+

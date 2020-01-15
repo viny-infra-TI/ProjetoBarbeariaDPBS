@@ -1,0 +1,254 @@
+﻿@model DPBSv11.Models.TB_FUNCIONARIO
+
+<head>
+    <title>Cadastrar novo funcionário</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=width-device, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="~/images/logoDPBS.jpg" type="image/x-png" />
+
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/padrao.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/Validacao/CustomValidation.js"></script>
+
+
+    <!-- Mascaras -->
+    <script src="~/Scripts/Inputmask-5.x/dist/jquery.inputmask.js"></script>
+    <script src="~/Scripts/Inputmask-5.x/dist/inputmask.js"></script>
+    <script src="~/Scripts/Inputmask-5.x/dist/bindings/inputmask.binding.js"></script>
+    <!-- Fim Mascaras -->
+
+
+    <script src="~/Scripts/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+    @*<script type="text/javascript">
+                    $(function() {
+                        $('#datetimepicker1').datetimepicker();
+
+
+                         var password = document.getElementById("senha"), confirm_password = document.getElementById("senha2");
+
+                                          if(password.value != confirm_password.value) {
+                                          confirm_password.setCustomValidity("Senhas estão diferentes!");
+                                          } else {
+                                          confirm_password.setCustomValidity('');
+                                          }
+
+                                          password.onchange = validatePassword;
+                                          confirm_password.onkeyup = validatePassword;
+                    });
+        </script>*@
+
+    <script type="text/javascript">
+        $(function () {
+            $("#cpf").inputmask("mask", {
+                "mask": "999.999.999-99", placeholder: "000.000.000-00", removeMaskOnSubmit: true
+            },
+                {
+                    reverse: true
+                });
+            $('#tele').inputmask('(99) 9999[9]-9999', { placeholder: "(00)00000-0000", removeMaskOnSubmit: true });
+            $('#datetimepicker1').datetimepicker();
+
+
+        });
+    </script>
+
+    <body class="bg-cinza color-cinza">
+        <!-- Menu -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark  wow fadeInDown" data-wow-duration="0.5s">
+
+
+            <a href="~/Home/Index" class="navbar-brand"><img src="~/images/logoDPBS.jpg" class="navbar-brand"></a>
+
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarMenu">
+                <div class="navbar-nav">
+                    <p><span class="badge badge-success badge-pill">Administrador</span></p>
+                    <a class="nav-item nav-link  active" href="~/TB_FUNCIONARIO/Create"> <b> Cadastrar Funcionários</b> </a>
+                    <a class="nav-item nav-link" href="~/TB_FUNCIONARIO/Index"> <b>Gerenciar Funcionários</b> </a>
+                    <a class="nav-item nav-link" href="~/TB_CLIENTE/Index"> <b>Gerenciar Cadastros de Clientes</b> </a>
+                    <a class="nav-item nav-link" href="~/TB_AGENDAMENTO/Index"> <b>Agendamentos</b> </a>
+                    <a class="nav-item nav-link" href="~/TB_PROMOCAO/Index"> <b>Promoções</b> </a>
+                    <a class="nav-item nav-link" href="~/TB_FUNCIONARIO/RelatorioGeral"> <b>Relatório</b> </a>
+
+
+                </div>
+            </div>
+            <div class="color-cinza-escuro">
+
+
+                <text>
+                    @Session["nomeUsuarioLogado"].ToString()
+                </text>
+
+
+                <div><p style="text-align:right"><a class="btn btn-danger" href="~/Home/Index"> Sair</a></p></div>
+
+
+            </div>
+        </nav>
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            
+
+            <div class="form-horizontal container bg-dark" style="margin-top:15px;border-radius:12px;">
+                <h4>Cadastrar novo funcionário</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group sr-only">
+                    @Html.LabelFor(model => model.DATA_CAD, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10" id="datetimepicker1">
+                        @Html.EditorFor(model => model.DATA_CAD, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DATA_CAD, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NOME, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NOME, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite o nome do funcionário", @required = true } })
+                        @Html.ValidationMessageFor(model => model.NOME, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    @*Verifica se o CPF já existe em nosso sistema*@
+
+                    @*@{ if (ViewBag.cpfcadastrado != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show btn-block" role="alert">
+                                <h6 style="color:red">@ViewBag.cpfcadastrado</h6>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        }
+                    }*@
+
+                    @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @id = "cpf", @class = "form-control", placeholder = "Digite seu CPF", @required = true } })
+                        @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    @*Verifica se o EMAIL já existe em nosso sistema*@
+
+                    @*@{ if (ViewBag.emailcadastrado != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show btn-block" role="alert">
+                                <h6 style="color:red">@ViewBag.emailcadastrado</h6>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        }
+                    }*@
+
+                    @Html.LabelFor(model => model.EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite o email do funcionário", @required = true } })
+                        @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SENHA, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*@Html.PasswordFor(model => model.SENHA, new { htmlAttributes = new { @class = "form-control" } })*@
+                        <p style="padding-top:10px">@Html.PasswordFor(a => a.SENHA, htmlAttributes: new { @class = "form-control", placeholder = "Digite sua senha", @required = true }) </p>
+                        @Html.ValidationMessageFor(model => model.SENHA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                @*<div class="form-group">
+                    @Html.LabelFor(model => model.CONFIRMARSENHA, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CONFIRMARSENHA, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CONFIRMARSENHA, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.COD_FUNCAO, "COD_FUNCAO", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("COD_FUNCAO", null, htmlAttributes: new { @class = "form-control", @required = true })
+                        @Html.ValidationMessageFor(model => model.COD_FUNCAO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                    @Html.LabelFor(model => model.ACESSO, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("ACESSO", null, htmlAttributes: new { @class = "form-control" , @required = true})
+                        @Html.ValidationMessageFor(model => model.ACESSO, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+
+
+
+                @*<div class="form-group">
+                    @Html.LabelFor(model => model.ACESSO, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(model => model.SENHA, new { htmlAttributes = new { @class = "form-control" } })
+                        <p style="padding-top:10px">@Html.TextBoxFor(a => a.ACESSO, htmlAttributes: new { @class = "form-control", placeholder = "Digite o ACESSO", @required = true }) </p>
+                        @Html.ValidationMessageFor(model => model.ACESSO, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ACESSO, "ACESSO", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.ACESSO, new List<String> { "FUNCIONARIO", "ADMINISTRADOR" }.Select(option => new SelectListItem
+                                {
+                                    Text = option,
+                                    Value = option,
+                                    Selected = (Model != null) && (Model.ACESSO == option)
+                                }), new { @class = "form-control" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group sr-only">
+                    @Html.LabelFor(model => model.SITUACAO, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SITUACAO, new { htmlAttributes = new { @Value = "1" } })
+                        @Html.ValidationMessageFor(model => model.SITUACAO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Cadastrar" class="btn btn-success" onclick="function()" />
+                        <a href="~/TB_FUNCIONARIO/index" class="btn btn-danger">Voltar</a>
+                    </div><br /><br />
+                </div>
+            </div>
+        }
+    </body>
+
+
+
+

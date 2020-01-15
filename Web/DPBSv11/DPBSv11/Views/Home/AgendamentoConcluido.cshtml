@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+<head>
+    <title>Concluído</title>
+    <link rel="shortcut icon" href="~/images/logoDPBS.ico">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=width-device, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="~/images/logoDPBS.jpg" type="image/x-png" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/padrao.css" rel="stylesheet" />
+
+
+</head>
+<body class="bg-cinza-escuro">
+
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  wow fadeInDown" data-wow-duration="0.5s">
+
+        <a href="~/Home/Index" class="navbar-brand"><img src="~/images/logoDPBS.jpg" class="navbar-brand"></a>
+
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarMenu">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="~/Home/Index"> <b>Home</b> </a>
+                <a class="nav-item nav-link" href="~/Home/Estilos"> <b>Estilos</b></a>
+                <a class="nav-item nav-link active" href="~/TB_AGENDA/AgendaDisponivel"> <b>Agendamento</b></a>
+                <a class="nav-item nav-link" href="~/Home/Sobre"> <b>Sobre</b></a>
+            </div>
+        </div>
+
+
+    </nav>
+    <br>
+    <div class="container container2">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center div-col wow zoomIn bg-dark ">
+                <h4 class="color-dourado">Agendamento Concluído!</h4>
+                <img src="~/images/titulo.png" class="img-fluid img-thumbnail wow zoomIn" data-wow-delay="0.2s"><br><br>
+                @*<a href="#"><img src="~/images/logoDPBS.jpg" class="img-fluid img-thumbnail wow zoomIn" data-wow-delay="0.2s"> <b class="color-dourado"></a>
+                    Baixe nosso app na
+                    Apple Store ou na Play Store para consultar seu agendamento.
+                </b> <br><br>*@
+                <a href="~/TB_CLIENTE/AgendaCliente" class="btn btn-success"> Finalizar</a>
+                <hr>
+                <footer class="color-dourado">
+                    <div class="align-self-center text-center wow zoomIn" data-wow-duration="0.5s">
+
+                        <p>Contato: (XX) XXXXX-XXXX</p>
+                        <a href="#"><img class="img-fluid img-thumbnail " src="~/images/facebookDP.jpg"></a>
+                        <a href="#"><img class="img-fluid img-thumbnail " src="~/images/instagramDP.jpg"></a>
+                        <a href="#"><img class="img-fluid img-thumbnail " src="~/images/snapDP.jpg"></a>
+                        <a href="#"><img class="img-fluid img-thumbnail " src="~/images/emailDP.jpg"></a>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        Copyright© Dom Pedro Barber Shop 2019.
+                    </div>
+                </footer>
+            </div>
+
+
+        </div>
+        </div>
+
+
+
+
+
+
+        @*Java script da página*@
+
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        <script src="~/Scripts/wow.min.js"></script>
+        <script>
+            new WOW().init();
+        </script>
+        <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+﻿@model DPBSv11.Models.TB_FUNCIONARIO
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+<head>
+    <title>Faça login para agendar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=width-device, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="~/images/logoDPBS.jpg" type="image/x-png" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/padrao.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+</head>
+<body class="bg-cinza-escuro">
+
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  wow fadeInDown" data-wow-duration="0.5s">
+
+
+        <a href="~/Home/Index" class="navbar-brand"><img src="~/images/logoDPBS.jpg" class="navbar-brand"></a>
+
+
+
+ 
+        <div class="navbar-collapse collapse" id="navbarMenu">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="~/Home/Index"> <b>Home</b> </a>
+
+            </div>
+        </div>
+
+
+
+
+
+    </nav>
+    <br><br><br>
+
+
+    <div class="container">
+
+        <div class="h1 color-preto-dark justify-content-center" style="display:flex; justify-content:center;"> Área do Funcionário</div>
+        <div class="h2 color-preto-dark justify-content-center" style="display:flex; justify-content:center; padding-bottom:20px;"> Somente para usuários autorizados</div>
+        <div class="form-group">
+            @using (Html.BeginForm("Login", "TB_FUNCIONARIO", FormMethod.Post))
+            {
+                //cria a tag do formulário
+                @Html.AntiForgeryToken() // previne o ataque CSRF
+                @Html.ValidationSummary(true, "", new { @class = "alert-danger" });
+                if (@ViewBag.Message != null)
+                {
+                  
+                }
+                <div class="wow fadeIn" style="display:flex; justify-content:center; ">
+                   
+                    <table class="form_group table-dark" style="display:flex;justify-content:center;padding:15px;width:350px;">
+                        <tr>
+                            @*&nbsp; &nbsp;*@
+                            <img src="~/images/avatar2.jpg" class="img-fluid" />
+                            <td>@Html.LabelFor(a => a.EMAIL, htmlAttributes: new { @class = "color-dourado" })</td>
+                            <td>@Html.TextBoxFor(a => a.EMAIL, htmlAttributes: new { @class = "form-control", placeholder = "Digite seu e-mail", @required = true })</td>
+                            <td>@Html.ValidationMessageFor(a => a.EMAIL)</td>
+                        </tr>
+                        <tr>
+                            <td> @Html.LabelFor(a => a.SENHA, htmlAttributes: new { @class = "color-dourado" })</td>
+                            <td style="padding-top:10px">@Html.PasswordFor(a => a.SENHA, htmlAttributes: new { @class = "form-control", placeholder = "Digite sua senha" , @required = true}) </td>
+                            <td> @Html.ValidationMessageFor(a => a.EMAIL) </td>
+
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td style="padding-top:20px">
+                                <input type="submit" value="Logar" class="btn btn-success btn-block" />
+
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+
+
+
+
+
+
+
+            }
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    @*Java script da página*@
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>

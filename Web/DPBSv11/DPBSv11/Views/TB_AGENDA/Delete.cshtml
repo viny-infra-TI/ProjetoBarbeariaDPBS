@@ -1,0 +1,68 @@
+﻿@model DPBSv11.Models.TB_AGENDA
+
+@{
+    ViewBag.Title = "Delete";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/padrao.css" rel="stylesheet" />
+
+<div class="container col-6 justify-content-center bg-preto-dark color-dourado " style="margin-top:15px;border-radius:12px;">
+    <h4>Excluir</h4>
+    <h5>Todos os registros serão apagados, deseja continuar?</h5>
+    <hr />
+    <div>
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DATA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DATA)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HORA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HORA)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SITUACAO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SITUACAO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TB_FUNCIONARIO.NOME)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TB_FUNCIONARIO.NOME)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TB_SERVICO.SERVICO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TB_SERVICO.SERVICO)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Excluir" class="btn btn-warning" />
+                <a href="~/TB_AGENDA/Index" class="btn btn-danger">Voltar</a>
+            </div> <br />
+        }
+    </div>
+    </div>

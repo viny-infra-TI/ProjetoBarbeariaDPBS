@@ -1,0 +1,32 @@
+/*
+Palheta de Cores:
+  #343a40= Preto;
+
+  #C8CCCF= Cinza Letra;
+  #ddd: Cinza Background;
+  #ffde59: dourado;
+
+
+*/
+
+.container2{background-color:#343a40;color:#C8CCCF}
+
+.color-dourado{color:#ffde59;}
+.color-preto-dark{color:#343a46;}
+.color-cinza-escuro{color: #C8CCCF;}
+.color-cinza{color:#ddd;}
+.bg-dourado{background-color:#ffde59;}
+.bg-cinza-escuro{background-color: #C8CCCF;}
+.bg-cinza{background-color:#ddd;}
+.bg-preto-dark{background-color:#343a46;}
+
+.div-col{color:#343a40 ;background-color:#ddd; border: solid 1px #ccc;}
+
+.img-fundo {
+    background-image: url("logoDPBS.jpg"); /* The image used */
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 500px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}

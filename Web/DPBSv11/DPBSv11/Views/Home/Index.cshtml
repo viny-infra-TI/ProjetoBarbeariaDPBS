@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+<head>
+    <title>DPBS Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=width-device, initial-scale=1, shrink-to-fit=no" />
+     <link rel="shortcut icon" href="~/images/logoDPBS.jpg" type="image/x-png" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/padrao.css" rel="stylesheet" />
+    
+
+</head>
+<body class="bg-cinza">
+
+    <!-- Menu -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  wow fadeInDown" data-wow-duration="0.5s">
+
+        <a href="~/Home/Index" class="navbar-brand"><img src="~/images/logoDPBS.jpg" class="navbar-brand"></a>
+
+
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarMenu">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="~/Home/Index"> <b>Home</b> </a>
+                <a class="nav-item nav-link" href="~/Home/Estilos"> <b>Estilos</b></a>
+                <a class="nav-item nav-link" href="~/TB_CLIENTE/Create"> <b>Agendamento</b></a>
+                <a class="nav-item nav-link" href="~/Home/Sobre"> <b>Sobre</b></a>
+                <a class="nav-item nav-link" href="~/TB_FUNCIONARIO/Login"> <b>Área do Funcionário</b></a>
+            </div>
+        </div>
+
+
+    </nav>
+    <br><br>
+
+    <!-- Carrossel -->
+    <div class="container container2">
+
+        <div id="slideshowExemplo" class="slide carousel">
+
+            <!-- SLide1 -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="~/images/titulo.png " class="w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5></h5>
+                        <p></p>
+                    </div>
+                </div>
+                <!-- Slide2 -->
+                <div class="carousel-item">
+                    <img src="~/images/slide1.jpg" class="w-100">
+                    
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5></h5>
+                        <p></p>
+                    </div>
+                </div>
+                <!-- Slide3 -->
+                <div class="carousel-item">
+                    <a href="~/TB_CLIENTE/Create">
+                        <img src="~/images/slide2.jpg" class="w-100">
+                    </a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5></h5>
+                        <p></p>
+                    </div>
+                </div>
+                <!-- Slide4 -->
+                <div class="carousel-item">
+                    <a href="~/TB_PROMOCAO/Promocoes">
+                        <img src="~/images/slide3.jpg" class="w-100">
+                    </a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5></h5>
+                            <p></p>
+                        </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#slideshowExemplo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#slideshowExemplo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+               
+        <!-- Corpo -->
+        
+        <div class="h2 text-center color-dourado wow zoomIn" data-wow-duration="0.8s"> <b>Nossos Serviços</b> <br>Somente cortes masculinos</div><br>
+        <div class="row justify-content-center" style="height:400px">
+            <div class="col-3 text-center div-col wow zoomIn">
+                <h4>Cabelo</h4>
+                <img src="~/images/avatarCabelo.jpg" alt="Barba" class="img-fluid img-thumbnail wow zoomIn" data-wow-delay="0.2s"><br><br>
+                <button class="btn btn-dark wow fadeInDown" data-wow-delay="0.5s" data-toggle="modal" data-target="#janela1">Saiba mais</button>
+                <!-- MODAL1 -->
+                <div class="modal fade" id="janela1">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content bg-dark color-cinza">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Cabelo</h5>
+                                <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <img src="~/images/avatarCabelo.jpg" alt="CKids" class="img-fluid img-thumbnail">
+                                <p>Custando apenas: R$ 25,00</p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-danger" data-dismiss="modal"> Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 text-center div-col  wow zoomIn">
+                <h4>Barba</h4>
+                <img src="~/images/avatarBarba.jpg" alt="Barba" class="img-fluid img-thumbnail wow zoomIn" data-wow-delay="0.2s"><br><br>
+                <button class="btn btn-dark wow fadeInDown" data-wow-delay="0.5s" data-toggle="modal" data-target="#janela2">Saiba mais</button>
+                <!-- MODAL2 -->
+                <div class="modal fade" id="janela2">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content bg-dark color-cinza">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Barba</h5>
+                                <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <img src="~/images/avatarBarba.jpg" alt="Barba" class="img-fluid img-thumbnail">
+                                <p>Custando apenas: R$25,00</p>
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <button class="btn btn-danger" data-dismiss="modal"> Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 text-center div-col  wow zoomIn">
+                <h4>Kids</h4>
+                <img src="~/images/avatarKids.jpg" alt="Barba" class="img-fluid img-thumbnail wow zoomIn" data-wow-delay="0.2s"><br><br>
+                <button class="btn btn-dark wow fadeInDown" data-wow-delay="0.5s" data-toggle="modal" data-target="#janela3">Saiba mais</button>
+                <!-- MODAL3 -->
+                <div class="modal fade" id="janela3">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content bg-dark color-cinza">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Kids</h5>
+                                <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <img src="~/images/avatarKids.jpg" alt="Kids" class="img-fluid img-thumbnail">
+                                <p>Custando apenas: R$ 30,00</p>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-danger" data-dismiss="modal"> Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+        <br>
+
+        <footer>
+            <div class="align-self-center text-center wow zoomIn" data-wow-duration="0.5s">
+
+                @*<p>Contato: (XX) XXXXX-XXXX</p>*@
+                <address class="text-center">
+
+                    @*&nbsp;*@
+                    <strong>Contato:</strong> <a href="https://api.whatsapp.com/send?phone=5511986652204"> WhatsApp Dom Pedro Barber Shop</a> <br />
+                    <strong>Suporte:</strong> <a href="mailto:dpbs.barbershop@hotmail.com">dpbs.barbershop@hotmail.com</a><br />
+
+
+                </address>
+                <a href="#"><img class="img-fluid img-thumbnail " src="~/images/facebookDP.jpg"></a>
+                <a href="#"><img class="img-fluid img-thumbnail " src="~/images/instagramDP.jpg"></a>
+                <a href="#"><img class="img-fluid img-thumbnail " src="~/images/snapDP.jpg"></a>
+                <a href="#"><img class="img-fluid img-thumbnail " src="~/images/emailDP.jpg"></a>
+            </div>
+            <hr>
+            <div class="text-center">
+                Copyright&copy; Dom Pedro Barber Shop   @DateTime.Now.Year.
+            </div>
+        </footer>
+        <hr>
+    </div>
+
+ @*Java script da página*@          
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

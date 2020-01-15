@@ -1,0 +1,889 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8B585BE4-3E5A-4BBE-B3EC-09E2AE90DFFA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DPBSv11</RootNamespace>
+    <AssemblyName>DPBSv11</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44304</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TB_AGENDAController.cs" />
+    <Compile Include="Controllers\TB_AGENDAMENTOController.cs" />
+    <Compile Include="Controllers\TB_CLIENTEController.cs" />
+    <Compile Include="Controllers\TB_FUNCAOController.cs" />
+    <Compile Include="Controllers\TB_FUNCIONARIOController.cs" />
+    <Compile Include="Controllers\TB_PROMOCAOController.cs" />
+    <Compile Include="Controllers\TB_SERVICOController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConexaoModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConexaoModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConexaoModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConexaoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConexaoModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConexaoModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_AGENDA.cs">
+      <DependentUpon>ConexaoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_AGENDAMENTO.cs">
+      <DependentUpon>ConexaoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_CATEGORIA.cs">
+      <DependentUpon>ConexaoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_CLIENTE.cs">
+      <DependentUpon>ConexaoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_FUNCAO.cs">
+      <DependentUpon>ConexaoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_FUNCIONARIO.cs">
+      <DependentUpon>ConexaoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_PROMOCAO.cs">
+      <DependentUpon>ConexaoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_SERVICO.cs">
+      <DependentUpon>ConexaoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Validacoes\CustomModelBinder.cs" />
+    <Compile Include="Models\Validacoes\CustomValidationCPFAttribute.cs" />
+    <Compile Include="Models\Validacoes\DataBrasilAttribute.cs" />
+    <Compile Include="Models\Validacoes\EmailBrasilAttribute.cs" />
+    <Compile Include="Models\Validacoes\IgnoreModelErrors.cs" />
+    <Compile Include="Models\Validacoes\NumeroBrasilAttribute.cs" />
+    <Compile Include="Models\Validacoes\SenhaBrasilAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\AgendamentoViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\DataTables\extensions\AutoFill\css\autoFill.bootstrap.css" />
+    <Content Include="Content\DataTables\extensions\AutoFill\css\autoFill.bootstrap.min.css" />
+    <Content Include="Content\DataTables\extensions\AutoFill\css\autoFill.bootstrap4.css" />
+    <Content Include="Content\DataTables\extensions\AutoFill\css\autoFill.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\extensions\AutoFill\css\autoFill.dataTables.css" />
+    <Content Include="Content\DataTables\extensions\AutoFill\css\autoFill.dataTables.min.css" />
+    <Content Include="Content\DataTables\extensions\AutoFill\css\autoFill.foundation.css" />
+    <Content Include="Content\DataTables\extensions\AutoFill\css\autoFill.foundation.min.css" />
+    <Content Include="Content\DataTables\extensions\AutoFill\css\autoFill.jqueryui.css" />
+    <Content Include="Content\DataTables\extensions\AutoFill\css\autoFill.jqueryui.min.css" />
+    <Content Include="Content\DataTables\extensions\AutoFill\css\autoFill.semanticui.css" />
+    <Content Include="Content\DataTables\extensions\AutoFill\css\autoFill.semanticui.min.css" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\buttons.bootstrap.css" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\buttons.bootstrap.min.css" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\buttons.bootstrap4.css" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\buttons.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\buttons.dataTables.css" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\buttons.dataTables.min.css" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\buttons.foundation.css" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\buttons.foundation.min.css" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\buttons.jqueryui.css" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\buttons.jqueryui.min.css" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\buttons.semanticui.css" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\buttons.semanticui.min.css" />
+    <Content Include="Content\DataTables\extensions\ColReorder\css\colReorder.bootstrap.css" />
+    <Content Include="Content\DataTables\extensions\ColReorder\css\colReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables\extensions\ColReorder\css\colReorder.bootstrap4.css" />
+    <Content Include="Content\DataTables\extensions\ColReorder\css\colReorder.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\extensions\ColReorder\css\colReorder.dataTables.css" />
+    <Content Include="Content\DataTables\extensions\ColReorder\css\colReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables\extensions\ColReorder\css\colReorder.foundation.css" />
+    <Content Include="Content\DataTables\extensions\ColReorder\css\colReorder.foundation.min.css" />
+    <Content Include="Content\DataTables\extensions\ColReorder\css\colReorder.jqueryui.css" />
+    <Content Include="Content\DataTables\extensions\ColReorder\css\colReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables\extensions\ColReorder\css\colReorder.semanticui.css" />
+    <Content Include="Content\DataTables\extensions\ColReorder\css\colReorder.semanticui.min.css" />
+    <Content Include="Content\DataTables\extensions\FixedColumns\css\fixedColumns.bootstrap.css" />
+    <Content Include="Content\DataTables\extensions\FixedColumns\css\fixedColumns.bootstrap.min.css" />
+    <Content Include="Content\DataTables\extensions\FixedColumns\css\fixedColumns.bootstrap4.css" />
+    <Content Include="Content\DataTables\extensions\FixedColumns\css\fixedColumns.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\extensions\FixedColumns\css\fixedColumns.dataTables.css" />
+    <Content Include="Content\DataTables\extensions\FixedColumns\css\fixedColumns.dataTables.min.css" />
+    <Content Include="Content\DataTables\extensions\FixedColumns\css\fixedColumns.foundation.css" />
+    <Content Include="Content\DataTables\extensions\FixedColumns\css\fixedColumns.foundation.min.css" />
+    <Content Include="Content\DataTables\extensions\FixedColumns\css\fixedColumns.jqueryui.css" />
+    <Content Include="Content\DataTables\extensions\FixedColumns\css\fixedColumns.jqueryui.min.css" />
+    <Content Include="Content\DataTables\extensions\FixedColumns\css\fixedColumns.semanticui.css" />
+    <Content Include="Content\DataTables\extensions\FixedColumns\css\fixedColumns.semanticui.min.css" />
+    <Content Include="Content\DataTables\extensions\FixedHeader\css\fixedHeader.bootstrap.css" />
+    <Content Include="Content\DataTables\extensions\FixedHeader\css\fixedHeader.bootstrap.min.css" />
+    <Content Include="Content\DataTables\extensions\FixedHeader\css\fixedHeader.bootstrap4.css" />
+    <Content Include="Content\DataTables\extensions\FixedHeader\css\fixedHeader.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\extensions\FixedHeader\css\fixedHeader.dataTables.css" />
+    <Content Include="Content\DataTables\extensions\FixedHeader\css\fixedHeader.dataTables.min.css" />
+    <Content Include="Content\DataTables\extensions\FixedHeader\css\fixedHeader.foundation.css" />
+    <Content Include="Content\DataTables\extensions\FixedHeader\css\fixedHeader.foundation.min.css" />
+    <Content Include="Content\DataTables\extensions\FixedHeader\css\fixedHeader.jqueryui.css" />
+    <Content Include="Content\DataTables\extensions\FixedHeader\css\fixedHeader.jqueryui.min.css" />
+    <Content Include="Content\DataTables\extensions\FixedHeader\css\fixedHeader.semanticui.css" />
+    <Content Include="Content\DataTables\extensions\FixedHeader\css\fixedHeader.semanticui.min.css" />
+    <Content Include="Content\DataTables\extensions\KeyTable\css\keyTable.bootstrap.css" />
+    <Content Include="Content\DataTables\extensions\KeyTable\css\keyTable.bootstrap.min.css" />
+    <Content Include="Content\DataTables\extensions\KeyTable\css\keyTable.bootstrap4.css" />
+    <Content Include="Content\DataTables\extensions\KeyTable\css\keyTable.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\extensions\KeyTable\css\keyTable.dataTables.css" />
+    <Content Include="Content\DataTables\extensions\KeyTable\css\keyTable.dataTables.min.css" />
+    <Content Include="Content\DataTables\extensions\KeyTable\css\keyTable.foundation.css" />
+    <Content Include="Content\DataTables\extensions\KeyTable\css\keyTable.foundation.min.css" />
+    <Content Include="Content\DataTables\extensions\KeyTable\css\keyTable.jqueryui.css" />
+    <Content Include="Content\DataTables\extensions\KeyTable\css\keyTable.jqueryui.min.css" />
+    <Content Include="Content\DataTables\extensions\KeyTable\css\keyTable.semanticui.css" />
+    <Content Include="Content\DataTables\extensions\KeyTable\css\keyTable.semanticui.min.css" />
+    <Content Include="Content\DataTables\extensions\Responsive\css\responsive.bootstrap.css" />
+    <Content Include="Content\DataTables\extensions\Responsive\css\responsive.bootstrap.min.css" />
+    <Content Include="Content\DataTables\extensions\Responsive\css\responsive.bootstrap4.css" />
+    <Content Include="Content\DataTables\extensions\Responsive\css\responsive.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\extensions\Responsive\css\responsive.dataTables.css" />
+    <Content Include="Content\DataTables\extensions\Responsive\css\responsive.dataTables.min.css" />
+    <Content Include="Content\DataTables\extensions\Responsive\css\responsive.foundation.css" />
+    <Content Include="Content\DataTables\extensions\Responsive\css\responsive.foundation.min.css" />
+    <Content Include="Content\DataTables\extensions\Responsive\css\responsive.jqueryui.css" />
+    <Content Include="Content\DataTables\extensions\Responsive\css\responsive.jqueryui.min.css" />
+    <Content Include="Content\DataTables\extensions\Responsive\css\responsive.semanticui.css" />
+    <Content Include="Content\DataTables\extensions\Responsive\css\responsive.semanticui.min.css" />
+    <Content Include="Content\DataTables\extensions\RowGroup\css\rowGroup.bootstrap.css" />
+    <Content Include="Content\DataTables\extensions\RowGroup\css\rowGroup.bootstrap.min.css" />
+    <Content Include="Content\DataTables\extensions\RowGroup\css\rowGroup.bootstrap4.css" />
+    <Content Include="Content\DataTables\extensions\RowGroup\css\rowGroup.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\extensions\RowGroup\css\rowGroup.dataTables.css" />
+    <Content Include="Content\DataTables\extensions\RowGroup\css\rowGroup.dataTables.min.css" />
+    <Content Include="Content\DataTables\extensions\RowGroup\css\rowGroup.foundation.css" />
+    <Content Include="Content\DataTables\extensions\RowGroup\css\rowGroup.foundation.min.css" />
+    <Content Include="Content\DataTables\extensions\RowGroup\css\rowGroup.jqueryui.css" />
+    <Content Include="Content\DataTables\extensions\RowGroup\css\rowGroup.jqueryui.min.css" />
+    <Content Include="Content\DataTables\extensions\RowGroup\css\rowGroup.semanticui.css" />
+    <Content Include="Content\DataTables\extensions\RowGroup\css\rowGroup.semanticui.min.css" />
+    <Content Include="Content\DataTables\extensions\RowReorder\css\rowReorder.bootstrap.css" />
+    <Content Include="Content\DataTables\extensions\RowReorder\css\rowReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables\extensions\RowReorder\css\rowReorder.bootstrap4.css" />
+    <Content Include="Content\DataTables\extensions\RowReorder\css\rowReorder.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\extensions\RowReorder\css\rowReorder.dataTables.css" />
+    <Content Include="Content\DataTables\extensions\RowReorder\css\rowReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables\extensions\RowReorder\css\rowReorder.foundation.css" />
+    <Content Include="Content\DataTables\extensions\RowReorder\css\rowReorder.foundation.min.css" />
+    <Content Include="Content\DataTables\extensions\RowReorder\css\rowReorder.jqueryui.css" />
+    <Content Include="Content\DataTables\extensions\RowReorder\css\rowReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables\extensions\RowReorder\css\rowReorder.semanticui.css" />
+    <Content Include="Content\DataTables\extensions\RowReorder\css\rowReorder.semanticui.min.css" />
+    <Content Include="Content\DataTables\extensions\Scroller\css\scroller.bootstrap.css" />
+    <Content Include="Content\DataTables\extensions\Scroller\css\scroller.bootstrap.min.css" />
+    <Content Include="Content\DataTables\extensions\Scroller\css\scroller.bootstrap4.css" />
+    <Content Include="Content\DataTables\extensions\Scroller\css\scroller.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\extensions\Scroller\css\scroller.dataTables.css" />
+    <Content Include="Content\DataTables\extensions\Scroller\css\scroller.dataTables.min.css" />
+    <Content Include="Content\DataTables\extensions\Scroller\css\scroller.foundation.css" />
+    <Content Include="Content\DataTables\extensions\Scroller\css\scroller.foundation.min.css" />
+    <Content Include="Content\DataTables\extensions\Scroller\css\scroller.jqueryui.css" />
+    <Content Include="Content\DataTables\extensions\Scroller\css\scroller.jqueryui.min.css" />
+    <Content Include="Content\DataTables\extensions\Scroller\css\scroller.semanticui.css" />
+    <Content Include="Content\DataTables\extensions\Scroller\css\scroller.semanticui.min.css" />
+    <Content Include="Content\DataTables\extensions\Select\css\select.bootstrap.css" />
+    <Content Include="Content\DataTables\extensions\Select\css\select.bootstrap.min.css" />
+    <Content Include="Content\DataTables\extensions\Select\css\select.bootstrap4.css" />
+    <Content Include="Content\DataTables\extensions\Select\css\select.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\extensions\Select\css\select.dataTables.css" />
+    <Content Include="Content\DataTables\extensions\Select\css\select.dataTables.min.css" />
+    <Content Include="Content\DataTables\extensions\Select\css\select.foundation.css" />
+    <Content Include="Content\DataTables\extensions\Select\css\select.foundation.min.css" />
+    <Content Include="Content\DataTables\extensions\Select\css\select.jqueryui.css" />
+    <Content Include="Content\DataTables\extensions\Select\css\select.jqueryui.min.css" />
+    <Content Include="Content\DataTables\extensions\Select\css\select.semanticui.css" />
+    <Content Include="Content\DataTables\extensions\Select\css\select.semanticui.min.css" />
+    <Content Include="Content\DataTables\media\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTables\media\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\DataTables\media\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\DataTables\media\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\media\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTables\media\css\dataTables.foundation.min.css" />
+    <Content Include="Content\DataTables\media\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTables\media\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\DataTables\media\css\dataTables.semanticui.css" />
+    <Content Include="Content\DataTables\media\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\DataTables\media\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables\media\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTables\media\images\favicon.ico" />
+    <Content Include="Content\DataTables\media\images\sort_asc.png" />
+    <Content Include="Content\DataTables\media\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables\media\images\sort_both.png" />
+    <Content Include="Content\DataTables\media\images\sort_desc.png" />
+    <Content Include="Content\DataTables\media\images\sort_desc_disabled.png" />
+    <Content Include="Content\gijgo\combined\gijgo.css" />
+    <Content Include="Content\gijgo\combined\gijgo.min.css" />
+    <Content Include="Content\gijgo\fonts\gijgo-material.svg" />
+    <Content Include="Content\gijgo\modular\checkbox.css" />
+    <Content Include="Content\gijgo\modular\checkbox.min.css" />
+    <Content Include="Content\gijgo\modular\colorpicker.css" />
+    <Content Include="Content\gijgo\modular\colorpicker.min.css" />
+    <Content Include="Content\gijgo\modular\core.css" />
+    <Content Include="Content\gijgo\modular\core.min.css" />
+    <Content Include="Content\gijgo\modular\datepicker.css" />
+    <Content Include="Content\gijgo\modular\datepicker.min.css" />
+    <Content Include="Content\gijgo\modular\datetimepicker.css" />
+    <Content Include="Content\gijgo\modular\datetimepicker.min.css" />
+    <Content Include="Content\gijgo\modular\dialog.css" />
+    <Content Include="Content\gijgo\modular\dialog.min.css" />
+    <Content Include="Content\gijgo\modular\dropdown.css" />
+    <Content Include="Content\gijgo\modular\dropdown.min.css" />
+    <Content Include="Content\gijgo\modular\editor.css" />
+    <Content Include="Content\gijgo\modular\editor.min.css" />
+    <Content Include="Content\gijgo\modular\grid.css" />
+    <Content Include="Content\gijgo\modular\grid.min.css" />
+    <Content Include="Content\gijgo\modular\slider.css" />
+    <Content Include="Content\gijgo\modular\slider.min.css" />
+    <Content Include="Content\gijgo\modular\timepicker.css" />
+    <Content Include="Content\gijgo\modular\timepicker.min.css" />
+    <Content Include="Content\gijgo\modular\tree.css" />
+    <Content Include="Content\gijgo\modular\tree.min.css" />
+    <Content Include="Content\padrao.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="images\avatar.jpg" />
+    <Content Include="images\avatar2.jpg" />
+    <Content Include="images\avatarBarba.jpg" />
+    <Content Include="images\avatarBarbaCabelo.jpg" />
+    <Content Include="images\avatarCabelo.jpg" />
+    <Content Include="images\avatarKids.jpg" />
+    <Content Include="images\Barba1.jpg" />
+    <Content Include="images\Barba10.jpg" />
+    <Content Include="images\barba20.jpg" />
+    <Content Include="images\Barba30.jpg" />
+    <Content Include="images\Barba4.jpg" />
+    <Content Include="images\Barba5.jpg" />
+    <Content Include="images\Cabelo.jpg" />
+    <Content Include="images\Cabelo1.jpg" />
+    <Content Include="images\Cabelo3.jpg" />
+    <Content Include="images\Cabelo40.jpg" />
+    <Content Include="images\Cabelo5.jpg" />
+    <Content Include="images\Cabelo50.jpg" />
+    <Content Include="images\Cabelo60.jpg" />
+    <Content Include="images\CabeloBarba.jpg" />
+    <Content Include="images\CabeloBarba1.jpg" />
+    <Content Include="images\CabeloBarba2.jpg" />
+    <Content Include="images\CabeloBarba3.jpg" />
+    <Content Include="images\CabeloBarba4.jpg" />
+    <Content Include="images\emailDP.jpg" />
+    <Content Include="images\facebookDP.jpg" />
+    <Content Include="images\instagramDP.jpg" />
+    <Content Include="images\logoDPBS.jpg" />
+    <Content Include="images\slide1.jpg" />
+    <Content Include="images\slide2.jpg" />
+    <Content Include="images\slide3.jpg" />
+    <Content Include="images\snapDP.jpg" />
+    <Content Include="images\titulo.png" />
+    <Content Include="Models\ConexaoModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ConexaoModel.Context.cs</LastGenOutput>
+      <DependentUpon>ConexaoModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ConexaoModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ConexaoModel.edmx</DependentUpon>
+      <LastGenOutput>ConexaoModel.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\ConexaoModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ConexaoModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ConexaoModel.edmx.diagram">
+      <DependentUpon>ConexaoModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\CustomValidacoes.js" />
+    <Content Include="Scripts\DataTables\extensions\AutoFill\js\autoFill.bootstrap.js" />
+    <Content Include="Scripts\DataTables\extensions\AutoFill\js\autoFill.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\extensions\AutoFill\js\autoFill.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\extensions\AutoFill\js\autoFill.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\extensions\AutoFill\js\autoFill.foundation.js" />
+    <Content Include="Scripts\DataTables\extensions\AutoFill\js\autoFill.foundation.min.js" />
+    <Content Include="Scripts\DataTables\extensions\AutoFill\js\autoFill.jqueryui.js" />
+    <Content Include="Scripts\DataTables\extensions\AutoFill\js\autoFill.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\AutoFill\js\autoFill.semanticui.js" />
+    <Content Include="Scripts\DataTables\extensions\AutoFill\js\autoFill.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\AutoFill\js\dataTables.autoFill.js" />
+    <Content Include="Scripts\DataTables\extensions\AutoFill\js\dataTables.autoFill.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.bootstrap.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.colVis.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.colVis.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.flash.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.flash.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.foundation.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.foundation.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.html5.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.html5.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.jqueryui.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.print.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.print.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.semanticui.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\buttons.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\dataTables.buttons.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\js\dataTables.buttons.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Buttons\swf\flashExport.swf" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\colReorder.bootstrap.js" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\colReorder.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\colReorder.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\colReorder.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\colReorder.dataTables.js" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\colReorder.foundation.js" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\colReorder.foundation.min.js" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\colReorder.jqueryui.js" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\colReorder.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\colReorder.semanicui.js" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\colReorder.semanticui.js" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\colReorder.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\dataTables.colReorder.js" />
+    <Content Include="Scripts\DataTables\extensions\ColReorder\js\dataTables.colReorder.min.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\dataTables.fixedColumns.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\dataTables.fixedColumns.min.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\fixedColumns.bootstrap.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\fixedColumns.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\fixedColumns.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\fixedColumns.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\fixedColumns.dataTables.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\fixedColumns.foundation.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\fixedColumns.foundation.min.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\fixedColumns.jqueryui.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\fixedColumns.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\fixedColumns.semanicui.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\fixedColumns.semanticui.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedColumns\js\fixedColumns.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\dataTables.fixedHeader.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\fixedHeader.bootstrap.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\fixedHeader.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\fixedHeader.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\fixedHeader.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\fixedHeader.dataTables.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\fixedHeader.foundation.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\fixedHeader.foundation.min.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\fixedHeader.jqueryui.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\fixedHeader.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\fixedHeader.semanicui.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\fixedHeader.semanticui.js" />
+    <Content Include="Scripts\DataTables\extensions\FixedHeader\js\fixedHeader.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\JSZip\jszip.js" />
+    <Content Include="Scripts\DataTables\extensions\JSZip\jszip.min.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\dataTables.keyTable.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\dataTables.keyTable.min.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\keyTable.bootstrap.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\keyTable.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\keyTable.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\keyTable.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\keyTable.dataTables.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\keyTable.foundation.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\keyTable.foundation.min.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\keyTable.jqueryui.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\keyTable.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\keyTable.semanicui.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\keyTable.semanticui.js" />
+    <Content Include="Scripts\DataTables\extensions\KeyTable\js\keyTable.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\pdfmake\pdfmake.js" />
+    <Content Include="Scripts\DataTables\extensions\pdfmake\pdfmake.min.js" />
+    <Content Include="Scripts\DataTables\extensions\pdfmake\vfs_fonts.js" />
+    <Content Include="Scripts\DataTables\extensions\Responsive\js\dataTables.responsive.js" />
+    <Content Include="Scripts\DataTables\extensions\Responsive\js\dataTables.responsive.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Responsive\js\responsive.bootstrap.js" />
+    <Content Include="Scripts\DataTables\extensions\Responsive\js\responsive.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Responsive\js\responsive.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\extensions\Responsive\js\responsive.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Responsive\js\responsive.foundation.js" />
+    <Content Include="Scripts\DataTables\extensions\Responsive\js\responsive.foundation.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Responsive\js\responsive.jqueryui.js" />
+    <Content Include="Scripts\DataTables\extensions\Responsive\js\responsive.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Responsive\js\responsive.semanticui.js" />
+    <Content Include="Scripts\DataTables\extensions\Responsive\js\responsive.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\dataTables.rowGroup.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\dataTables.rowGroup.min.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\rowGroup.bootstrap.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\rowGroup.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\rowGroup.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\rowGroup.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\rowGroup.dataTables.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\rowGroup.foundation.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\rowGroup.foundation.min.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\rowGroup.jqueryui.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\rowGroup.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\rowGroup.semanicui.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\rowGroup.semanticui.js" />
+    <Content Include="Scripts\DataTables\extensions\RowGroup\js\rowGroup.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\RowReorder\js\dataTables.rowReorder.js" />
+    <Content Include="Scripts\DataTables\extensions\RowReorder\js\dataTables.rowReorder.min.js" />
+    <Content Include="Scripts\DataTables\extensions\RowReorder\js\rowReorder.bootstrap.js" />
+    <Content Include="Scripts\DataTables\extensions\RowReorder\js\rowReorder.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\extensions\RowReorder\js\rowReorder.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\extensions\RowReorder\js\rowReorder.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\extensions\RowReorder\js\rowReorder.dataTables.js" />
+    <Content Include="Scripts\DataTables\extensions\RowReorder\js\rowReorder.foundation.js" />
+    <Content Include="Scripts\DataTables\extensions\RowReorder\js\rowReorder.foundation.min.js" />
+    <Content Include="Scripts\DataTables\extensions\RowReorder\js\rowReorder.jqueryui.js" />
+    <Content Include="Scripts\DataTables\extensions\RowReorder\js\rowReorder.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\RowReorder\js\rowReorder.semanticui.js" />
+    <Content Include="Scripts\DataTables\extensions\RowReorder\js\rowReorder.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\dataTables.scroller.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\dataTables.scroller.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\scroller.bootstrap.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\scroller.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\scroller.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\scroller.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\scroller.dataTables.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\scroller.foundation.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\scroller.foundation.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\scroller.jqueryui.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\scroller.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\scroller.semanicui.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\scroller.semanticui.js" />
+    <Content Include="Scripts\DataTables\extensions\Scroller\js\scroller.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Select\js\dataTables.select.js" />
+    <Content Include="Scripts\DataTables\extensions\Select\js\dataTables.select.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Select\js\select.bootstrap.js" />
+    <Content Include="Scripts\DataTables\extensions\Select\js\select.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Select\js\select.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\extensions\Select\js\select.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Select\js\select.dataTables.js" />
+    <Content Include="Scripts\DataTables\extensions\Select\js\select.foundation.js" />
+    <Content Include="Scripts\DataTables\extensions\Select\js\select.foundation.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Select\js\select.jqueryui.js" />
+    <Content Include="Scripts\DataTables\extensions\Select\js\select.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\extensions\Select\js\select.semanticui.js" />
+    <Content Include="Scripts\DataTables\extensions\Select\js\select.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\media\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\DataTables\media\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\media\js\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\media\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\media\js\dataTables.foundation.js" />
+    <Content Include="Scripts\DataTables\media\js\dataTables.foundation.min.js" />
+    <Content Include="Scripts\DataTables\media\js\dataTables.jqueryui.js" />
+    <Content Include="Scripts\DataTables\media\js\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\media\js\dataTables.semanticui.js" />
+    <Content Include="Scripts\DataTables\media\js\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\media\js\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables\media\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\gijgo\combined\gijgo.js" />
+    <Content Include="Scripts\gijgo\combined\gijgo.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.bg-bg.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.bg-bg.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.de-de.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.de-de.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.es-es.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.es-es.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.fr-fr.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.fr-fr.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.it-it.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.it-it.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.ja-jp.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.ja-jp.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.pt-br.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.pt-br.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.ru-ru.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.ru-ru.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.tr-tr.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.tr-tr.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.zh-cn.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.zh-cn.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.zh-tw.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.zh-tw.min.js" />
+    <Content Include="Scripts\gijgo\modular\checkbox.js" />
+    <Content Include="Scripts\gijgo\modular\checkbox.min.js" />
+    <Content Include="Scripts\gijgo\modular\colorpicker.js" />
+    <Content Include="Scripts\gijgo\modular\colorpicker.min.js" />
+    <Content Include="Scripts\gijgo\modular\core.js" />
+    <Content Include="Scripts\gijgo\modular\core.min.js" />
+    <Content Include="Scripts\gijgo\modular\datepicker.js" />
+    <Content Include="Scripts\gijgo\modular\datepicker.min.js" />
+    <Content Include="Scripts\gijgo\modular\datetimepicker.js" />
+    <Content Include="Scripts\gijgo\modular\datetimepicker.min.js" />
+    <Content Include="Scripts\gijgo\modular\dialog.js" />
+    <Content Include="Scripts\gijgo\modular\dialog.min.js" />
+    <Content Include="Scripts\gijgo\modular\draggable.js" />
+    <Content Include="Scripts\gijgo\modular\draggable.min.js" />
+    <Content Include="Scripts\gijgo\modular\dropdown.js" />
+    <Content Include="Scripts\gijgo\modular\dropdown.min.js" />
+    <Content Include="Scripts\gijgo\modular\droppable.js" />
+    <Content Include="Scripts\gijgo\modular\droppable.min.js" />
+    <Content Include="Scripts\gijgo\modular\editor.js" />
+    <Content Include="Scripts\gijgo\modular\editor.min.js" />
+    <Content Include="Scripts\gijgo\modular\grid.js" />
+    <Content Include="Scripts\gijgo\modular\grid.min.js" />
+    <Content Include="Scripts\gijgo\modular\slider.js" />
+    <Content Include="Scripts\gijgo\modular\slider.min.js" />
+    <Content Include="Scripts\gijgo\modular\timepicker.js" />
+    <Content Include="Scripts\gijgo\modular\timepicker.min.js" />
+    <Content Include="Scripts\gijgo\modular\tree.js" />
+    <Content Include="Scripts\gijgo\modular\tree.min.js" />
+    <Content Include="Scripts\Inputmask-5.x\bundle.jquery.js" />
+    <Content Include="Scripts\Inputmask-5.x\bundle.js" />
+    <Content Include="Scripts\Inputmask-5.x\dist\bindings\inputmask.binding.js" />
+    <Content Include="Scripts\Inputmask-5.x\dist\inputmask.js" />
+    <Content Include="Scripts\Inputmask-5.x\dist\inputmask.min.js" />
+    <Content Include="Scripts\Inputmask-5.x\dist\jquery.inputmask.js" />
+    <Content Include="Scripts\Inputmask-5.x\dist\jquery.inputmask.min.js" />
+    <Content Include="Scripts\Inputmask-5.x\Gruntfile.js" />
+    <Content Include="Scripts\Inputmask-5.x\index.html" />
+    <Content Include="Scripts\Inputmask-5.x\index.js" />
+    <Content Include="Scripts\Inputmask-5.x\lib\bindings\inputmask.binding.js" />
+    <Content Include="Scripts\Inputmask-5.x\lib\dependencyLibs\inputmask.dependencyLib.jqlite.js" />
+    <Content Include="Scripts\Inputmask-5.x\lib\dependencyLibs\inputmask.dependencyLib.jquery.js" />
+    <Content Include="Scripts\Inputmask-5.x\lib\dependencyLibs\inputmask.dependencyLib.js" />
+    <Content Include="Scripts\Inputmask-5.x\lib\extensions\inputmask.date.extensions.js" />
+    <Content Include="Scripts\Inputmask-5.x\lib\extensions\inputmask.extensions.js" />
+    <Content Include="Scripts\Inputmask-5.x\lib\extensions\inputmask.numeric.extensions.js" />
+    <Content Include="Scripts\Inputmask-5.x\lib\global\window.js" />
+    <Content Include="Scripts\Inputmask-5.x\lib\inputmask.js" />
+    <Content Include="Scripts\Inputmask-5.x\lib\jquery.inputmask.js" />
+    <Content Include="Scripts\Inputmask-5.x\lib\maskScope.js" />
+    <Content Include="Scripts\Inputmask-5.x\lib\maskset.js" />
+    <Content Include="Scripts\Inputmask-5.x\LICENSE.txt" />
+    <Content Include="Scripts\Inputmask-5.x\nuspecs\Readme.txt" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\index.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\prototypeExtensions.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\qunit.html" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\simulator.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_alternations.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_attributes.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_base.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_date.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_dynamic.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_escape.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_formatvalidate.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_initialvalue.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_inputeventonly.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_ip.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_jitmasking.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_jquery_inputmask.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_keepStatic.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_multi.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_numeric.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_numericinput.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_option.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_optional.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_paste.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_regex.js" />
+    <Content Include="Scripts\Inputmask-5.x\qunit\tests_setvalue.js" />
+    <Content Include="Scripts\Inputmask-5.x\webpack.config.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\Validacao\CustomValidation.js" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\common.scss" />
+    <Content Include="Content\DataTables\extensions\Buttons\css\mixins.scss" />
+    <Content Include="Content\DataTables\media\images\Sorting icons.psd" />
+    <Content Include="Content\gijgo\fonts\gijgo-material.eot" />
+    <Content Include="Content\gijgo\fonts\gijgo-material.ttf" />
+    <Content Include="Content\gijgo\fonts\gijgo-material.woff" />
+    <None Include="Scripts\Validacao\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\Validacao\jquery-1.8.2.js" />
+    <Content Include="Scripts\Validacao\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\Validacao\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\Validacao\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\Validacao\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\Validacao\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\Validacao\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Validacao\jquery.validate.js" />
+    <Content Include="Scripts\Validacao\jquery.validate.min.js" />
+    <Content Include="Scripts\Validacao\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\Validacao\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Validacao\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\Validacao\knockout-2.2.0.js" />
+    <Content Include="Scripts\Validacao\modernizr-2.6.2.js" />
+    <None Include="Scripts\Validacao\_references.js" />
+    <Content Include="Scripts\wow.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Home\AgendamentoBarba.cshtml" />
+    <Content Include="Views\Home\AgendamentoBarbaCabelo.cshtml" />
+    <Content Include="Views\Home\AgendamentoCabelo.cshtml" />
+    <Content Include="Views\Home\AgendamentoConcluido.cshtml" />
+    <Content Include="Views\Home\AgendamentoKids.cshtml" />
+    <Content Include="Views\Home\AGENDAMENTOTESTE.cshtml" />
+    <Content Include="Views\Home\CancelarAgenda.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Estilos.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Sobre.cshtml" />
+    <Content Include="Views\TB_AGENDAMENTO\AgendaCancelados.cshtml" />
+    <Content Include="Views\TB_AGENDAMENTO\AgendaFinalizados.cshtml" />
+    <Content Include="Views\TB_AGENDAMENTO\Create.cshtml" />
+    <Content Include="Views\TB_AGENDAMENTO\Delete.cshtml" />
+    <Content Include="Views\TB_AGENDAMENTO\Details.cshtml" />
+    <Content Include="Views\TB_AGENDAMENTO\Edit.cshtml" />
+    <Content Include="Views\TB_AGENDAMENTO\FiltrarAgenda - Cópia .cshtml" />
+    <Content Include="Views\TB_AGENDAMENTO\FiltrarAgenda.cshtml" />
+    <Content Include="Views\TB_AGENDAMENTO\Index.cshtml" />
+    <Content Include="Views\TB_AGENDAMENTO\RelatorioClienteCancelado.cshtml" />
+    <Content Include="Views\TB_AGENDAMENTO\teste.cshtml" />
+    <Content Include="Views\TB_AGENDA\AgendaBarba.cshtml" />
+    <Content Include="Views\TB_AGENDA\AgendaDisponivel.cshtml" />
+    <Content Include="Views\TB_AGENDA\AgendaDisponivelCabelo.cshtml" />
+    <Content Include="Views\TB_AGENDA\AgendaDisponivelCabeloBarba.cshtml" />
+    <Content Include="Views\TB_AGENDA\AgendaDisponivelKids.cshtml" />
+    <Content Include="Views\TB_AGENDA\Create.cshtml" />
+    <Content Include="Views\TB_AGENDA\Delete.cshtml" />
+    <Content Include="Views\TB_AGENDA\Details.cshtml" />
+    <Content Include="Views\TB_AGENDA\Edit.cshtml" />
+    <Content Include="Views\TB_AGENDA\Index.cshtml" />
+    <Content Include="Views\TB_AGENDA\teste.cshtml" />
+    <Content Include="Views\TB_AGENDA\UpdateAgenda.cshtml" />
+    <Content Include="Views\TB_CLIENTE\AgendaCliente.cshtml" />
+    <Content Include="Views\TB_CLIENTE\Agendamento.cshtml" />
+    <Content Include="Views\TB_CLIENTE\AreaCliente.cshtml" />
+    <Content Include="Views\TB_CLIENTE\Cancelar.cshtml" />
+    <Content Include="Views\TB_CLIENTE\CancelarAgenda.cshtml" />
+    <Content Include="Views\TB_CLIENTE\Create.cshtml" />
+    <Content Include="Views\TB_CLIENTE\Delete.cshtml" />
+    <Content Include="Views\TB_CLIENTE\Details.cshtml" />
+    <Content Include="Views\TB_CLIENTE\Edit.cshtml" />
+    <Content Include="Views\TB_CLIENTE\EditClient.cshtml" />
+    <Content Include="Views\TB_CLIENTE\EstilosCliente.cshtml" />
+    <Content Include="Views\TB_CLIENTE\Index.cshtml" />
+    <Content Include="Views\TB_CLIENTE\Login.cshtml" />
+    <Content Include="Views\TB_CLIENTE\RelatorioCliente.cshtml" />
+    <Content Include="Views\TB_FUNCAO\Create.cshtml" />
+    <Content Include="Views\TB_FUNCAO\Delete.cshtml" />
+    <Content Include="Views\TB_FUNCAO\Details.cshtml" />
+    <Content Include="Views\TB_FUNCAO\Edit.cshtml" />
+    <Content Include="Views\TB_FUNCAO\Index.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\Agenda.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\AreaFuncionario.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\Create.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\Delete.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\DesligarFuncionario.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\Details.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\Detalhes.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\Edit.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\EditarFunc.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\FimServ.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\Finalizar.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\FuncionariosDesligados.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\Index.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\Login.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\Perfil.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\RelatorioCancelados.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\RelatorioFuncionario.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\RelatorioFuncionarioCancelado.cshtml" />
+    <Content Include="Views\TB_FUNCIONARIO\RelatorioGeral.cshtml" />
+    <Content Include="Views\TB_PROMOCAO\Create.cshtml" />
+    <Content Include="Views\TB_PROMOCAO\Delete.cshtml" />
+    <Content Include="Views\TB_PROMOCAO\Details.cshtml" />
+    <Content Include="Views\TB_PROMOCAO\DetalhesPromocoes.cshtml" />
+    <Content Include="Views\TB_PROMOCAO\DetalhesPromocoesCli.cshtml" />
+    <Content Include="Views\TB_PROMOCAO\Edit.cshtml" />
+    <Content Include="Views\TB_PROMOCAO\Index.cshtml" />
+    <Content Include="Views\TB_PROMOCAO\Promocoes.cshtml" />
+    <Content Include="Views\TB_PROMOCAO\PromocoesCli.cshtml" />
+    <Content Include="Views\TB_SERVICO\Create.cshtml" />
+    <Content Include="Views\TB_SERVICO\Delete.cshtml" />
+    <Content Include="Views\TB_SERVICO\Details.cshtml" />
+    <Content Include="Views\TB_SERVICO\Edit.cshtml" />
+    <Content Include="Views\TB_SERVICO\Index.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\Inputmask-5.x\.eslintrc" />
+    <Content Include="Scripts\Inputmask-5.x\.gitattributes" />
+    <Content Include="Scripts\Inputmask-5.x\.github\ISSUE_TEMPLATE\issue-report.md" />
+    <Content Include="Scripts\Inputmask-5.x\.gitignore" />
+    <Content Include="Scripts\Inputmask-5.x\bower.json" />
+    <Content Include="Scripts\Inputmask-5.x\CHANGELOG.md" />
+    <Content Include="Scripts\Inputmask-5.x\composer.json" />
+    <Content Include="Scripts\Inputmask-5.x\nuspecs\Inputmask.nuspec" />
+    <Content Include="Scripts\Inputmask-5.x\nuspecs\jquery.inputmask.nuspec" />
+    <Content Include="Scripts\Inputmask-5.x\package.json" />
+    <Content Include="Scripts\Inputmask-5.x\README.md" />
+    <Content Include="Scripts\Inputmask-5.x\README_date.md" />
+    <Content Include="Scripts\Inputmask-5.x\README_numeric.md" />
+    <Content Include="Scripts\Inputmask-5.x\README_other.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50536</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44304/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

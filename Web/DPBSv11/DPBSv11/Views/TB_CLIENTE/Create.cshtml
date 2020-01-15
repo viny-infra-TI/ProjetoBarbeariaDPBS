@@ -1,0 +1,202 @@
+﻿@model DPBSv11.Models.TB_CLIENTE
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+<head>
+    <title>Faça login para agendar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=width-device, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="~/images/logoDPBS.jpg" type="image/x-png" />
+
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/padrao.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/Validacao/CustomValidation.js"></script>
+
+    <!-- Mascaras -->
+    <script src="~/Scripts/Inputmask-5.x/dist/jquery.inputmask.js"></script>
+    <script src="~/Scripts/Inputmask-5.x/dist/inputmask.js"></script>
+    <script src="~/Scripts/Inputmask-5.x/dist/bindings/inputmask.binding.js"></script>
+    <!-- Fim Mascaras -->
+
+
+    <script src="~/Scripts/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+
+</head>
+
+
+
+   
+<body class="bg-cinza-escuro">
+
+
+
+    <!--MASCARAS-->
+    <script type="text/javascript">
+        $(function () {
+            $("#cpf").inputmask("mask", {
+                "mask": "999.999.999-99", placeholder: "000.000.000-00", removeMaskOnSubmit: true
+            },
+                {
+                    reverse: true
+                });
+            $('#tele').inputmask('(99) 9999[9]-9999', { placeholder: "(00)00000-0000", removeMaskOnSubmit: true });
+            $('#datetimepicker1').datetimepicker();
+
+
+        });
+    </script>
+
+
+
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  wow fadeInDown" data-wow-duration="0.5s">
+
+
+        <a href="~/Home/Index" class="navbar-brand"><img src="~/images/logoDPBS.jpg" class="navbar-brand"></a>
+
+
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarMenu">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="~/Home/Index"> <b>Home</b> </a>
+                <a class="nav-item nav-link" href="~/Home/Estilos"> <b>Estilos</b></a>
+                <a class="nav-item nav-link active" href="~/Home/Login"> <b>Agendamento</b></a>
+                <a class="nav-item nav-link" href="~/Home/Sobre"> <b>Sobre</b></a>
+                <a class="nav-item nav-link" href="~/TB_FUNCIONARIO/Login"> <b>Área do Funcionário</b></a>
+            </div>
+        </div>
+        <p style="text-align:right"><a class="btn btn-success" href="~/TB_CLIENTE/Login"> Acessar minha conta</a></p>
+
+
+    </nav>
+    <br><br><br>
+
+
+
+    <div class="container container2">
+
+        <div class="h2 text-center color-dourado wow zoomIn">Para agendar nossos serviços é necessário que você tenha um cadastro.</div><br>
+        <div class="row justify-content-center " style="height:500px">
+            <div class="col-6 text-center div-col">
+                <h4 class="wow zoomIn" data-wow-duration="0.8s">Cadastre-se</h4><p class="wow zoomIn" data-wow-duration="0.8s">(Crie uma conta)</p>
+                <img src="~/images/avatar.jpg" alt="Cadastro" class="img-fluid img-thumbnail wow zoomIn" data-wow-delay="0.2s"><br><br>
+                <button class="btn btn-dark wow zoomIn" data-wow-delay="0.5s" data-toggle="modal" data-target="#janela1">Clique aqui e cadastra-se!</button>
+            </div>
+
+        </div>
+        <div class="text-center">
+            Copyright© Dom Pedro Barber Shop 2019.
+        </div>
+    </div>
+
+
+    <!-- FIM DA DIV CONTAINER-->
+    <!-- MODAL1 -->
+    <div class="modal fade" id="janela1">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content bg-dark color-cinza">
+                <div class="modal-header">
+                    <h5 class="modal-title">  </h5>
+                    <h2>Cadastre-se</h2>
+                    <button class="close" data-dismiss="modal"> <span>&times;</span> </button>
+
+                </div>
+                <div class="modal-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+
+                        @*<div class="form-group col-md-2">
+                                <label class="control-label">Data de hoje </label>
+                                <label class="control-label">@DateTime.Now.ToShortDateString()</label>
+                            </div>
+                            <br />
+                            <br />*@
+
+                        <div class="form">
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-warning" })
+                            <div class="form-group sr-only">
+                                @Html.LabelFor(model => model.DATA_CAD, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="input-group date" id="datetimepicker1">
+                                    <p class="input-group" readonly>  @Html.TextBoxFor(model => model.DATA_CAD, new { htmlAttributes = new { @class = "" } }) </p>
+                                    @Html.ValidationMessageFor(model => model.DATA_CAD, "Escolha uma data disponivel", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.NOME, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.NOME, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite seu nome", @required = true } })
+                                    @Html.ValidationMessageFor(model => model.NOME, "", new { @class = "text-warning" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.CPF, new { htmlAttributes = new {  @id = "cpf", @class = "form-control", placeholder = "Digite seu CPF", @required = true } })
+                                    @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-warning" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite seu e-mail", @required = true } })
+                                    @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-warning" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SENHA, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @*@Html.PasswordFor(model => model.SENHA, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    @Html.PasswordFor(a => a.SENHA, htmlAttributes: new { @class = "form-control", placeholder = "Digite sua senha", @required = true })
+                                    @Html.ValidationMessageFor(model => model.SENHA, "", new { @class = "text-warning" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TELEFONE, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.TELEFONE, new { htmlAttributes = new { id = "tele", @class = "form-control", placeholder = "Digite seu telefone", @required = true } })
+                                    @Html.ValidationMessageFor(model => model.TELEFONE, "", new { @class = "text-warning" })
+                                </div>
+                            </div>
+
+                            <div class="form-group sr-only">
+                                @Html.LabelFor(model => model.ACESSO, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ACESSO, new { htmlAttributes = new { @Value = "CLIENTE" } })
+                                    @Html.ValidationMessageFor(model => model.ACESSO, "", new { @class = "text-warning" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Cadastrar" class="btn btn-success " onclick="function()" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

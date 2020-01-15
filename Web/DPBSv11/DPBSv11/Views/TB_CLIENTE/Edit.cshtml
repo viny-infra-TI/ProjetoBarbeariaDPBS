@@ -1,0 +1,132 @@
+﻿@model DPBSv11.Models.TB_CLIENTE
+
+<head>
+    <title>Cadastrar novo funcionário</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=width-device, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="~/images/logoDPBS.jpg" type="image/x-png" />
+
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/padrao.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/Validacao/CustomValidation.js"></script>
+
+
+    <!-- Mascaras -->
+    <script src="~/Scripts/Inputmask-5.x/dist/jquery.inputmask.js"></script>
+    <script src="~/Scripts/Inputmask-5.x/dist/inputmask.js"></script>
+    <script src="~/Scripts/Inputmask-5.x/dist/bindings/inputmask.binding.js"></script>
+    <!-- Fim Mascaras -->
+
+
+    <script src="~/Scripts/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <!--MASCARAS-->
+    <script type="text/javascript">
+        $(function () {
+            $("#cpf").inputmask("mask", {
+                "mask": "999.999.999-99", placeholder: "000.000.000-00", removeMaskOnSubmit: true
+            },
+                {
+                    reverse: true
+                });
+            $('#tele').inputmask('(99) 9999[9]-9999', { placeholder: "(00)00000-0000", removeMaskOnSubmit: true });
+            $('#datetimepicker1').datetimepicker();
+
+
+        });
+    </script>
+    <div class="container col-6 justify-content-center bg-preto-dark color-dourado " style="margin-top:15px;border-radius:12px;">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+
+            <div class="form-horizontal">
+                <h4>TB_CLIENTE</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.COD_CLIENTE)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DATA_CAD, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DATA_CAD, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite a data atual" } })
+                        @Html.ValidationMessageFor(model => model.DATA_CAD, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NOME, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NOME, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite seu nome", @required = true } })
+                        @Html.ValidationMessageFor(model => model.NOME, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CPF, new { htmlAttributes = new {@id = "cpf",  @class = "form-control", placeholder = "Digite seu CPF", @required = true } })
+                        @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control", placeholder = "Digite seu e-mail", @required = true } })
+                        @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SENHA, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(a => a.SENHA, htmlAttributes: new { @class = "form-control", placeholder = "Digite sua senha", @required = true })
+                        @Html.ValidationMessageFor(model => model.SENHA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TELEFONE, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TELEFONE, new { htmlAttributes = new { @id = "tele", @class = "form-control", placeholder = "Digite seu telefone", @required = true } })
+                        @Html.ValidationMessageFor(model => model.TELEFONE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group sr-only">
+                    @Html.LabelFor(model => model.ACESSO, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ACESSO, new { htmlAttributes = new { @class = "form-control", placeholder = "Preencha o campo com CLIENTE", @Value = "CLIENTE" } })
+                        @Html.ValidationMessageFor(model => model.ACESSO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Salvar" class="btn btn-success" />
+
+                        <a class="btn btn-danger" href="~/TB_CLIENTE/Index"> Voltar</a>
+                    </div>
+                </div>
+            </div> <br />
+
+        }
+
+
+
+
+    </div>
+</body>

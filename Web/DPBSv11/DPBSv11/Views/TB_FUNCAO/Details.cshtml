@@ -1,0 +1,26 @@
+﻿@model DPBSv11.Models.TB_FUNCAO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TB_FUNCAO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FUNCAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FUNCAO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.COD_FUNCAO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

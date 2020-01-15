@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+<head>
+    <title>Serviços</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=width-device, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="~/images/logoDPBS.jpg" type="image/x-png" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/padrao.css" rel="stylesheet" />
+
+</head>
+<body class="bg-cinza-escuro">
+
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  wow fadeInDown" data-wow-duration="0.5s">
+
+
+        <a href="~/Home/Index" class="navbar-brand"><img src="~/images/logoDPBS.jpg" class="navbar-brand"></a>
+
+
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarMenu">
+            <div class="navbar-nav">
+                <p><span class="badge badge-success badge-pill">Cliente</span></p>
+
+                <a class="nav-item nav-link" href="~/TB_CLIENTE/AreaCliente/@Session["codigoCliente"]"> <b>Minha Conta</b></a>
+                <a class="nav-item nav-link" href="~/TB_CLIENTE/AgendaCliente/@Session["codigoCliente"]"> <b>Minha Agenda</b></a>
+
+                <a class="nav-item nav-link" href="~/TB_AGENDA/AgendaDisponivel"> <b>Agende-se</b> </a>
+                <a class="nav-item nav-link" href="~/TB_CLIENTE/EstilosCliente/@Session["codigoCliente"]"> <b>Estilos</b></a>
+                <a class="nav-item nav-link" href="~/TB_PROMOCAO/PromocoesCli"> <b>Promoções</b></a>
+
+                <a class="nav-item nav-link" href="~/TB_CLIENTE/RelatorioCliente"> <b>Agendamentos</b> </a>
+                <a class="nav-item nav-link active" href="~/TB_CLIENTE/Agendamento"> <b>Serviços</b> </a>
+
+
+
+            </div>
+
+        </div>
+        <div class="color-cinza-escuro">
+            
+           
+                <text>
+                    @Session["nomeUsuarioLogado"].ToString()
+                </text>
+           
+            
+            <div><p style="text-align:right"><a class="btn btn-danger" href="~/Home/Index"> Sair</a></p></div>
+            
+
+        </div>            
+    </nav>
+    <br><br>
+        <div class="container container2">
+            
+            <div class="h2 text-center color-dourado"> Escolha um serviço</div><br>
+            <div class="row justify-content-center">
+                <div class="col-5 text-center div-col">
+                    <h4>Cabelo</h4>
+                    <img src="~/images/avatarCabelo.jpg" alt="Cabelo" class="img-fluid img-thumbnail"><br><br>
+                    <a href="~/TB_AGENDA/AgendaDisponivelCabelo" class="btn btn-dark">Agendar</a>
+                    <br><br>
+                </div>
+                <div class="col-5 text-center div-col">
+                    <h4>Kids</h4>
+                    <img src="~/images/avatarKids.jpg" alt="Kids" class="img-fluid img-thumbnail"><br><br>
+                    <a href="~/TB_AGENDA/AgendaDisponivelKids" class="btn btn-dark">Agendar</a>
+                    <br><br>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-5 text-center div-col">
+                    <h4>Barba</h4>
+                    <img src="~/images/avatarBarba.jpg" alt="Barba" class="img-fluid img-thumbnail"><br><br>
+                    <a href="~/TB_AGENDA/AgendaBarba" class="btn btn-dark">Agendar</a>
+                    <br><br>
+                </div>
+                <div class="col-5 text-center div-col">
+                    <h4>Barba+Cabelo <span class="badge badge-dark badge-pill">20%OFF</span></h4>
+                    <img src="~/images/avatarBarbaCabelo.jpg" alt="Barba e Cabelo" class="img-fluid img-thumbnail"><br><br>
+                    <a href="~/TB_AGENDA/AgendaDisponivelCabeloBarba" class="btn btn-dark">Agendar</a>
+                    <br><br>
+
+                </div>
+            </div>
+            <footer>
+                <div class="align-self-center text-center">
+
+                    <p>Contato: (XX) XXXXX-XXXX</p>
+                    <a href="#"><img class="img-fluid img-thumbnail " src="~/images/facebookDP.jpg"></a>
+                    <a href="#"><img class="img-fluid img-thumbnail " src="~/images/instagramDP.jpg"></a>
+                    <a href="#"><img class="img-fluid img-thumbnail " src="~/images/snapDP.jpg"></a>
+                    <a href="#"><img class="img-fluid img-thumbnail " src="~/images/emailDP.jpg"></a>
+                </div>
+                <hr>
+                <div class="text-center">
+                    Copyright© Dom Pedro Barber Shop 2019.
+                </div>
+            </footer>
+        </div>
+    <br><br>
+    
+    <hr>
+
+
+
+    @*Java script da página*@
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>

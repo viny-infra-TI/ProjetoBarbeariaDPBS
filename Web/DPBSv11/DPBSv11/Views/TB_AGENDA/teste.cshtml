@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DPBSv11.Models.TB_AGENDA>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DATA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HORA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SITUACAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TB_FUNCIONARIO.NOME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TB_SERVICO.SERVICO)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DATA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HORA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SITUACAO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TB_FUNCIONARIO.NOME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TB_SERVICO.SERVICO)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.COD_AGENDA }) |
+                @Html.ActionLink("Details", "Details", new { id = item.COD_AGENDA }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.COD_AGENDA })
+            </td>
+        </tr>
+    }
+
+</table>

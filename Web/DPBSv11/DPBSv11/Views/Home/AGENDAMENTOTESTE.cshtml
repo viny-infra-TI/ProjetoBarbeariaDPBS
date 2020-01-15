@@ -1,0 +1,217 @@
+﻿@model DPBSv11.ViewModel.AgendamentoViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="~/images/logoDPBS.jpg" type="image/x-png" />
+    <title>Inserir dados</title>
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/padrao.css" rel="stylesheet" />
+</head>
+<body class="bg-cinza">
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+
+    <!--Gijgo datapicker e timepicker inicio-->
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/gijgo/modular/core.min.js"></script>
+    <script src="~/Scripts/gijgo/modular/datepicker.min.js"></script>
+    <script src="~/Scripts/gijgo/modular/timepicker.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/gijgo/modular/core.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/content/gijgo/modular/datepicker.min.css" />
+    <link href="~/Content/gijgo/modular/timepicker.css" rel="stylesheet" />
+
+
+
+
+    <!-- Mascaras -->
+    <script src="~/Scripts/Inputmask-5.x/dist/jquery.inputmask.js"></script>
+    <script src="~/Scripts/Inputmask-5.x/dist/inputmask.js"></script>
+    <script src="~/Scripts/Inputmask-5.x/dist/bindings/inputmask.binding.js"></script>
+    <!-- Fim Mascaras -->
+    <!--Script Gijgo datapicker -->
+    <script type="text/javascript">
+        $(function data() {
+            //Existe diferença entre datepicker e datatimepiker, todo material pego deste site: h ttps://gijgo.com/datepicker/configuration
+            $('#datepicker').datepicker({
+                //width: 312 define a largura
+                //utiliza a biblioteca de bootstrap, se deixar sem muda o formato do datapicker
+                uiLibrary: 'bootstrap3',
+                //Icone font awesome
+                iconsLibrary: 'fontawesome',
+                //Valor do imput
+                value: 'Dia/Mês/Ano',
+                //traduz para português
+                locale: 'pt-br',
+                //Formata para aparecer somente o ano no imput
+                format: 'dd mmmm yyyy',
+                //Desabilita alguns dias da semana
+                //disableDaysOfWeek: [0, 6],
+                //É possivel digitar enquanto o layout de datas está aberto
+                keyboardNavigation: true,
+                //mostra os dias do outro mês quando abre o calendario
+                showOtherMonths: false,
+                //não deixa selecionar os dias do outro mês quando abre o calendário
+                selectOtherMonths: true,
+                //ativa o cabeçario
+                header: true,
+                //torna o calendário modal
+                modal: true,
+                //ativa o rodapé do calendario
+                footer: true,
+
+
+            });
+
+
+            $('#timepicker').timepicker({
+                showInputs: true,
+                defaultTime: '',
+                minuteStep: 1,
+                disableFocus: true,
+                template: 'dropdown',
+                showMeridian: false
+
+            });
+
+        });
+
+    </script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  wow fadeInDown" data-wow-duration="0.5s">
+
+
+        <a href="#" class="navbar-brand"><img src="~/images/logoDPBS.jpg" class="navbar-brand"></a>
+
+
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarMenu">
+            <div class="navbar-nav">
+                <p><span class="badge badge-success badge-pill">Cliente</span></p>
+               
+
+
+
+
+
+            </div>
+
+        </div>
+        <div class="color-cinza-escuro">
+
+
+            <text>
+                @Session["nomeUsuarioLogado"].ToString()
+            </text>
+
+
+         
+
+
+        </div>
+    </nav>
+    <div class="bg-cinza-escuro container " style="margin-top:20px;  border-radius:12px;">
+        <div class="container body-content  " style="padding-top:20px;">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+            <div class="panel panel-primary">
+                <div id="teste" class="panel-heading">
+                    <h4>Informações da agenda selecionada abaixo </h4>
+                </div>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="form-group col-md-9">
+                            <label class="control-label">Nome: @Session["nomeUsuarioLogado"].ToString()</label>
+
+
+                        </div>
+
+                        <div class="form-group col-md-9">
+                            <label class="control-label">Email: @Session["emailCliente"].ToString()</label>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group ">
+                        <label class="control-label">CPF: @Session["cpfCliente"].ToString()</label>
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="form-group">
+
+                        <div class="form-group ">
+                            <label class="control-label">Serviço: @Session["servico"]</label>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="form-group">
+                            <label class="control-label">Funcionário: @Session["funcionario"]</label>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group ">
+
+                        <label class="control-label">DATA: @Convert.ToDateTime(Session["data"]).ToString("dd/MM/yyyy")</label> <br /><br />
+
+                    </div>
+
+
+                    <div class="form-group ">
+
+                        <label class="control-label">HORA: @Convert.ToDateTime(Session["hora"]).ToString("HH:mm")</label>
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="form-group col-md-10 sr-only">
+                        <label class="control-label">SITUAÇÃO: </label>
+                        @Html.TextBoxFor(model => model.SITUACAO, new { @Value = "1" })
+                        @Html.ValidationMessageFor(model => model.SITUACAO, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                <input type="submit" value="Confirmar Agendamento" class=" btn btn-success" onclick="function()" /> &nbsp; &nbsp;
+                <b class="btn btn-dark" style="border-radius:12px;">  @Html.ActionLink("Cancelar Agendamento", "CancelarAgenda", new { id = Session["codAgenda"] })</b>
+            </div>
+             
+
+            }
+        </div>
+        <br /><br /><br />
+    </div>
+
+</body>
+
+</html>

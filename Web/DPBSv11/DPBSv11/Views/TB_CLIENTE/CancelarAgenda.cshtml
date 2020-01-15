@@ -1,0 +1,150 @@
+﻿@model DPBSv11.Models.TB_AGENDA
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/bootstrap.bundle.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/padrao.css" rel="stylesheet" />
+<link href="~/Content/animate.css" rel="stylesheet" />
+<script src="~/Scripts/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
+<br />
+<br />
+<br />
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+
+
+<div class="container col-6 justify-content-center bg-preto-dark color-dourado " style="margin-top:15px;border-radius:12px;">
+    <br />
+    <h4 class="text-center animated infinite">Para cancelar o agendamento selecionado, click em <b>cancelar</b></h4>
+    <hr />
+
+
+    <div class="sr-only">
+
+        <hr />
+        <dl class="dl-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.COD_AGENDA)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DATA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DATA, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DATA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HORA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HORA, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.HORA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.COD_FUNCIONARIO, "COD_FUNCIONARIO", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("COD_FUNCIONARIO", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.COD_FUNCIONARIO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.COD_SERVICO, "COD_SERVICO", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("COD_SERVICO", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.COD_SERVICO, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    @*LABELS*@
+    <div class="text-center">
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DATA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DATA)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HORA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HORA)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SITUACAO)
+            </dt>
+
+            <dd>
+                <p class="btn btn-danger desabled badge badge-danger badge-pill">  Indisponível </p>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TB_FUNCIONARIO.NOME)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TB_FUNCIONARIO.NOME)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TB_SERVICO.SERVICO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TB_SERVICO.SERVICO)
+            </dd>
+
+        </dl>
+    </div>
+
+
+
+
+    <br /> <br /> <br />
+    <div class="form-group  text-center">
+        <div>
+            <input type="submit" value="Cancelar" class="btn btn-success" style="border-radius:12px;" /> &nbsp; &nbsp;
+            <a class="btn btn-danger" href="~/HOME/AGENDAMENTOTESTE" style="border-radius:12px;"> Voltar</a>
+        </div>
+    </div>
+    <br /> 
+</div>
+}
+

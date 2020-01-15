@@ -1,0 +1,50 @@
+﻿@model DPBSv11.Models.TB_SERVICO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TB_SERVICO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SERVICO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SERVICO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VALOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VALOR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COD_PROMOCAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COD_PROMOCAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TB_FUNCIONARIO.NOME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TB_FUNCIONARIO.NOME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.COD_SERVICO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
